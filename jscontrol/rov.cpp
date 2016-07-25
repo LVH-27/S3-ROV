@@ -19,6 +19,9 @@
 
 using namespace std;
 
+/**
+	Server receive packet structure
+*/
 struct msg_t
 {
         float f1, f2, f3, f4;
@@ -38,9 +41,11 @@ void socket_setup()
         sock_name.sin_family = AF_INET;
         sock_name.sin_addr.s_addr = htonl(INADDR_ANY);
         sock_name.sin_port = htons(1234);
+		
         bind(socket_desc, (sockaddr*)& sock_name, sizeof(sock_name));
         listen(socket_desc, 1);
         fprintf(stderr, "Listening on port %d\n", port);
+		
         sock = accept(socket_desc, 0, 0);
         close(socket_desc);
 }
@@ -167,23 +172,21 @@ int main (int argc, char** argv)
 	unsigned mask = 255;
 	char path[] = "/dev/ttyUSBx";
 
+	// Default port is 1234
 	if(argc>1) port = atoi(argv[1]);
         else port = 1234;
         socket_setup();
 	
 	wiringPiSetupGpio();
 	
+	// Signaling READY_GPIO
 	pinMode(READY_GPIO, INPUT);
 	pinMode(24, OUTPUT);
-
-	//ofstream spi_out("/dev/spidev0.0");
-	//ifstream spi_in("/dev/spidev0.0");
-	//spi_in.exceptions(ifstream::goodbit);
-	
 	digitalWrite(24, HIGH);
 
-	int fd;
 	
+	// We use the first responsive ttyUSB device
+	int fd;	
 	for (int i = 0; i < 10; ++i)
 	{
 		path[11] = ((char)(i + '0'));
@@ -195,87 +198,67 @@ int main (int argc, char** argv)
 
 	while (1) 
 	{
-		//cout << "GPIO: " << digitalRead(READY_GPIO) << endl;
+		// Receiving packet
 		int len = recv(sock, buf, 4*4+4, MSG_WAITALL);
                 msg = *(msg_t*)(void*)(&buf);
+		
+		# Mask has the low bit 1
+		# This is an attempt to determine the position of the mask in the struct received on Arduino
 		msg.mask |= 1;
-		//sleep(1);
-		//fprintf(stderr, "send\n");
+		
 		if (mask == 255)
 		{
 			mask = msg.mask;
 		}
 
-		/*unsigned*/ char spi_data[5];
+		//char spi_data[5];
 		unsigned in;		
 
 		handle_input(msg.f1, msg.f2, msg.f3, msg.f4, msg.mask);
 		
-		//if (digitalRead(READY_GPIO))
-                //{
-			digitalWrite(24, !digitalRead(24));
-			//++ready;
+		digitalWrite(24, !digitalRead(24));
+		
+		//spi_data[0] = (char) 255;
+		if (msg.f1 < 0)
+		{
+			//spi_data[2] = ((char) 0);
+            msg.mask |= (mask & 1 << 3);
+	    }
+		else
+        {
+			//spi_data[2] = ((char) ((int) (msg.f1 <= 1 ? msg.f1 * 100 : msg.f1)));
+            mask |= (msg.mask & 1 << 3);                
+	    }
+	    
+		if (msg.f2 < 0)
+        {
+			//spi_data[3] = ((char) 0);
+            msg.mask |= (mask & 1 << 1);
+        }
+        else
+        {
+			//spi_data[3] = ((char) ((int) (msg.f2 <= 1 ? msg.f2 * 100 : msg.f2)));
+            mask |= (msg.mask & 1 << 1);
+        }
+        
+		//spi_data[1] = ((char) ((int) msg.f3));
+        //spi_data[4] = (char) msg.mask;
 
-			//if (ready == 5)
-			//{
-				spi_data[0] = (char) 255;
-				if (msg.f1 < 0)
-        	                {
-                	                spi_data[2] = ((char) 0);
-                        	        msg.mask |= (mask & 1 << 3);
-	                        }
-        	                else
-                	        {
-                        	        spi_data[2] = ((char) ((int) (msg.f1 <= 1 ? msg.f1 * 100 : msg.f1)));
-                                	mask |= (msg.mask & 1 << 3);                
-	                        }
-	                        if (msg.f2 < 0)
-        	                {
-        	                        spi_data[3] = ((char) 0);
-                	                msg.mask |= (mask & 1 << 1);
-                       	 	}
-                       	 	else
-                        	{
-                                	spi_data[3] = ((char) ((int) (msg.f2 <= 1 ? msg.f2 * 100 : msg.f2)));
-                                	mask |= (msg.mask & 1 << 1);
-                        	}
-                        	spi_data[1] = ((char) ((int) msg.f3));
-                        	spi_data[4] = (char) msg.mask;
+		//spi_data[1] |= (1 << 7) + (1 << 6);
+		//spi_data[2] |= (1 << 7);
+		//spi_data[2] &= ~(1 << 6);
+		//spi_data[3] |= (1 << 6);
+		//spi_data[3] &= ~(1 << 7);
 
-				spi_data[1] |= (1 << 7) + (1 << 6);
-				spi_data[2] |= (1 << 7);
-				spi_data[2] &= ~(1 << 6);
-				spi_data[3] |= (1 << 6);
-                                spi_data[3] &= ~(1 << 7);
-
-				//spi_out << spi_data[0] << flush;
-				for (int i = 1; i < 4; ++i)
-				{
-					spi_data[i] &= ~(1);
-					serialPutchar(fd, spi_data[i]);
-					//cout << (int) spi_data[i] << ' ';
-					//serialPutchar(fd, 'd');
-					////serialPuts(fd, spi_data);
-					//cout << (int) spi_data[i] << ' ';
-					//spi_out << spi_data[i] << flush;
-					//sleep(0.01);
-				}
-				serialPutchar(fd, spi_data[4]);
-				//serialPuts(fd, spi_data);
-				//spi_out << spi_data[4] << flush;
-				//cout << endl;
-				
-				//ready = 1;
-			//}
-		//}
-		/*try
-                {
-                        spi_in >> in;
-                        cout << in << endl;
-                }
-                catch (const ifstream::failure& e)
-                {
-                }*/
+		//spi_out << spi_data[0] << flush;
+		for (int i = 1; i < 4; ++i)
+		{
+			spi_data[i] &= ~(1);
+			serialPutchar(fd, spi_data[i]);
+		}
+		
+		serialPutchar(fd, spi_data[4]);
+		
 	}	
 	
 	return 0;
