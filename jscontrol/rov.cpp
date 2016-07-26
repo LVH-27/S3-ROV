@@ -34,7 +34,7 @@ struct __attribute__((__packed__)) ard_msg_t {
 	unsigned int header;
 	unsigned char thr_left, thr_right, thr_center;
 	unsigned char mask;
-}
+};
 
 enum {left_motor, right_motor, center_motor};
 
@@ -143,7 +143,7 @@ void handle_input(float axis0, float axis1, float axis2, float axis3, unsigned m
 			axis0 /= cos(M_PI_8);
 			// axis0 > 0
 			motor_intensity(left_motor, -r*axis0);
-			motor_intensity(right_motor, -r*(1-axis0);
+			motor_intensity(right_motor, -r*(1-axis0));
 		}
 		else if (-7*M_PI_8 < angle && angle < -M_PI_2) {
 			axis0 /= cos(M_PI_8);
@@ -199,7 +199,7 @@ int main (int argc, char** argv)
 	while (1) {
 		// Receiving packet
 		int len = recv(sock, buf, 4*4+4, MSG_WAITALL);
-                msg = *(msg_t*)(void*)(&buf);
+                msg = *(srv_msg_t*)(void*)(&buf);
 		//fprintf(stderr, "%1.2f %1.2f %1.2f 0x%2x\n", msg.f1, msg.f2, msg.f3, msg.mask);
 		
 		// Mask has the low bit 1
