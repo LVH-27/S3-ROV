@@ -256,7 +256,7 @@ int main (int argc, char** argv)
 		//serialPutchar(fd, spi_data[4]);
 		
 		for (int i = 0; i < 4; i++)
-			serialPutchar(fd, (char) ((ard_msg.header >> 8*(4-i)) & 0xFF);
+			serialPutchar(fd, (char) ((ard_msg.header >> 8*(4-i)) & 0xFF));
 		serialPutchar(fd, ard_msg.thr_left);
 		serialPutchar(fd, ard_msg.thr_right);
 		serialPutchar(fd, ard_msg.thr_center);
