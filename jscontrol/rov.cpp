@@ -202,8 +202,8 @@ int main (int argc, char** argv)
 		int len = recv(sock, buf, 4*4+4, MSG_WAITALL);
                 msg = *(msg_t*)(void*)(&buf);
 		
-		# Mask has the low bit 1
-		# This is an attempt to determine the position of the mask in the struct received on Arduino
+		// Mask has the low bit 1
+		// This is an attempt to determine the position of the mask in the struct received on Arduino
 		msg.mask |= 1;
 		
 		if (mask == 255)
@@ -211,7 +211,7 @@ int main (int argc, char** argv)
 			mask = msg.mask;
 		}
 
-		//char spi_data[5];
+		char spi_data[5];
 		unsigned in;		
 
 		handle_input(msg.f1, msg.f2, msg.f3, msg.f4, msg.mask);
