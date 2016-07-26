@@ -206,7 +206,7 @@ int main (int argc, char** argv)
 		return 1;
 	*/
 	int fd;
-	fd = wiringPiI2CSetup(0x60);
+	fd = wiringPiI2CSetup(0x04);
 
 	while (1) {
 		// Receiving packet
@@ -268,11 +268,11 @@ int main (int argc, char** argv)
 		//serialPutchar(fd, spi_data[4]);
 		
 		for (int i = 0; i < 4; i++)
-			wiringPiI2CWriteReg8(fd, 0x04, (i % 2) == 0 ? 0xFF : 0x00);
-		wiringPiI2CWriteReg8(fd, 0x04, ard_msg.thr_left);
-		wiringPiI2CWriteReg8(fd, 0x04, ard_msg.thr_right);
-		wiringPiI2CWriteReg8(fd, 0x04, ard_msg.thr_center);
-		wiringPiI2CWriteReg8(fd, 0x04, ard_msg.mask);
+			wiringPiI2CWrite(fd, (i % 2) == 0 ? 0xFF : 0x00);
+		wiringPiI2CWrite(fd, ard_msg.thr_left);
+		wiringPiI2CWrite(fd, ard_msg.thr_right);
+		wiringPiI2CWrite(fd, ard_msg.thr_center);
+		wiringPiI2CWrite(fd, ard_msg.mask);
 		/*
 		for (int i = 0; i < 4; i++)
 			serialPutchar(fd, (char) ((ard_msg.header >> 8*(4-i)) & 0xFF));
