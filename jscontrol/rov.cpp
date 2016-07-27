@@ -98,16 +98,13 @@ void motor_intensity(int id, float throttle_float) {
 			ard_msg.thr_right = -throttle;
 		} else if (id == center_motor) {
 			ard_msg.mask |= 1 << CENTER_REVERSE;
-			ard_msg.thr_center = -throttle;
+			ard_msg.thr_center = throttle;
 		}
 	}
 }
 
 void handle_input(float axis0, float axis1, float axis2, float axis3, unsigned mask) {
 
-	if (mask&1u<<8) //select dugme - naredba quit
-			exit(0);
-			
 	// The angle and the radius calculated below adhere to the
 	// left analog stick as represented by the image below
 	//      --- PI/2 ---
@@ -133,13 +130,13 @@ void handle_input(float axis0, float axis1, float axis2, float axis3, unsigned m
 		// MOVING FORWARD
 		if (0 <= angle && angle < M_PI_2) {
 			// axis0 > 0
-			motor_intensity(left_motor, r*axis0);
-			motor_intensity(right_motor, r*(1-axis0));
+			motor_intensity(left_motor, r*(1+axis0)/2);
+			motor_intensity(right_motor, r*(1-axis0)/2);
 		}
 		else if ((M_PI_2 <= angle && angle < M_PI) || angle == ((float) -M_PI)) {
 			// axis0 < 0
-			motor_intensity(right_motor, r*(-axis0));
-			motor_intensity(left_motor, r*(1+axis0));
+			motor_intensity(right_motor, r*(1-axis0)/2);
+			motor_intensity(left_motor, r*(1+axis0)/2);
 		}
 		// MOVING BACKWARD
 		// Intervals <-PI_8, 0> and <-PI, -7/8 PI> are taken as dead zones.
@@ -147,14 +144,14 @@ void handle_input(float axis0, float axis1, float axis2, float axis3, unsigned m
 		else if (-M_PI_2 <= angle && angle < -M_PI_8) {
 			axis0 /= cos(M_PI_8);
 			// axis0 > 0
-			motor_intensity(left_motor, -r*axis0);
-			motor_intensity(right_motor, -r*(1-axis0));
+			motor_intensity(right_motor, -r*(1+axis0)/2);
+			motor_intensity(left_motor, -r*(1-axis0)/2);
 		}
 		else if (-7*M_PI_8 < angle && angle < -M_PI_2) {
 			axis0 /= cos(M_PI_8);
 			// axis0 < 0
-			motor_intensity(right_motor, -r*(-axis0));
-			motor_intensity(left_motor, r*(1+axis0));
+			motor_intensity(left_motor, -r*(1-axis0)/2);
+			motor_intensity(right_motor, -r*(1+axis0)/2);
 		}
 	}
 	
@@ -267,12 +264,14 @@ int main (int argc, char** argv)
 		
 		//serialPutchar(fd, spi_data[4]);
 		
-		for (int i = 0; i < 4; i++)
-			wiringPiI2CWrite(fd, (i % 2) == 0 ? 0xFF : 0x00);
+//		for (int i = 0; i < 4; i++)
+//			wiringPiI2CWrite(fd, (i % 2) == 0 ? 0xFF : 0x00);
+		wiringPiI2CWrite(fd, 0xB5);
 		wiringPiI2CWrite(fd, ard_msg.thr_left);
 		wiringPiI2CWrite(fd, ard_msg.thr_right);
 		wiringPiI2CWrite(fd, ard_msg.thr_center);
 		wiringPiI2CWrite(fd, ard_msg.mask);
+		wiringPiI2CWrite(fd, 0x5B);
 		/*
 		for (int i = 0; i < 4; i++)
 			serialPutchar(fd, (char) ((ard_msg.header >> 8*(4-i)) & 0xFF));
@@ -281,6 +280,9 @@ int main (int argc, char** argv)
 		serialPutchar(fd, ard_msg.thr_center);
 		serialPutchar(fd, ard_msg.mask);
 		*/
+
+		if (msg.mask & 1u<<8)
+			exit(0);
 	}	
 	
 	return 0;
