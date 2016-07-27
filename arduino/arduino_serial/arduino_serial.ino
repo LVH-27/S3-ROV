@@ -113,6 +113,9 @@ void setup(){
 char direction_halt[3] = {0};
 unsigned long halt_timers[3] = {0};
 
+char led_status = 0;
+char led_latch = 0;
+
 void loop(){
 	
 	// If there is serial data, wait for header and receive
@@ -122,15 +125,13 @@ void loop(){
 		rpi_msg.header <<= 8;
 		rpi_msg.header &= (int) serial_input;
 				
-		if ( rpi_msg.header != 0xFF00FF00 )
-			break;
-		
-		for (int i = 0; i < 3; i++)
-			rpi_msg.throttle[i] = Serial.read();
-		rpi_msg.mask = Serial.read();
-		
-		rpi_msg.header = 0;
-		
+		if ( rpi_msg.header == 0xFF00FF00 ){	
+			for (int i = 0; i < 3; i++)
+				rpi_msg.throttle[i] = Serial.read();
+			rpi_msg.mask = Serial.read();
+			
+			rpi_msg.header = 0;
+		}
 	}
 	
 	for (int i = 0; i < 3; i++){
@@ -157,5 +158,16 @@ void loop(){
 			motors[i].throttle = 0;
 		
 	}
+	
+	// Check for lights change
+	if ((rpi_msg.mask & (1 << LED_ON)) != 0){
+		if (led_latch != 1){
+			led_status = ~led_status;
+			led_latch = 1;
+		}
+	} else
+		led_latch = 0;
+	
+	digitalWrite(LED_PIN, (led_status == 0 ? LOW : HIGH));
 	
 }
