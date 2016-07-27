@@ -170,4 +170,11 @@ void loop(){
 	
 	digitalWrite(LED_PIN, (led_status == 0 ? LOW : HIGH));
 	
+	// If the RPI server quits reset motors and wait a bit
+	if ((rpi_msg.mask & (1 << POWER_DOWN)) != 0){
+		for (int i = 0; i < 3; i++)
+			motors[i].throttle = 0;
+		delay(1000);
+	}
+	
 }
