@@ -36,6 +36,17 @@ struct __attribute__((__packed__)) ard_msg_t {
 	unsigned char mask;
 };
 
+/*
+	Arduino mask format is defined as follows
+	  7  |  6  |  5  |  4  |  3  |  2  |  1  |  0  
+	RESER PWR_DN  x    LED  C_REV R_REV L_REV RESER
+*/
+#define POWER_DOWN 6
+#define LED_ON 4
+#define LEFT_REVERSE 1
+#define RIGHT_REVERSE 2
+#define CENTER_REVERSE 3
+
 enum {left_motor, right_motor, center_motor};
 
 int sock, port, ready = 0;
@@ -66,27 +77,27 @@ void motor_intensity(int id, float throttle_float) {
 	
 	if (throttle_float >= 0) {
 		if (id == left_motor) {
-			ard_msg.mask &= ~(1 << 2);
+			ard_msg.mask &= ~(1 << LEFT_REVERSE);
 			ard_msg.thr_left = throttle;
 		}
 		else if (id == right_motor) {
-			ard_msg.mask &= ~(1 << 3);
+			ard_msg.mask &= ~(1 << RIGHT_REVERSE);
 			ard_msg.thr_right = throttle;
 		}
 		else if (id == center_motor) {
-			ard_msg.mask &= ~(1 << 1);
+			ard_msg.mask &= ~(1 << CENTER_REVERSE);
 			ard_msg.thr_center = throttle;
 		}
 	} else {
 		if (id == left_motor) {
-			ard_msg.mask |= 1 << 2;
+			ard_msg.mask |= 1 << LEFT_REVERSE;
 			ard_msg.thr_left = -throttle;
 		}
 		else if (id == right_motor) {
-			ard_msg.mask |= 1 << 3;
+			ard_msg.mask |= 1 << RIGHT_REVERSE;
 			ard_msg.thr_right = -throttle;
 		} else if (id == center_motor) {
-			ard_msg.mask |= 1 << 1;
+			ard_msg.mask |= 1 << CENTER_REVERSE;
 			ard_msg.thr_center = -throttle;
 		}
 	}
@@ -109,13 +120,7 @@ void handle_input(float axis0, float axis1, float axis2, float axis3, unsigned m
 	float angle = atan2(-axis1, axis0);
 	float r = std::hypot(axis0, -axis1); if(r>1) r=1;
 	//fprintf(stderr, "angle: %.2f, r: %.2f, r2: %.2f\n", angle, r, fabs(axis2));
-
-	// Nepoznata svrha
-	// Promijenjena maska za ledice
-	if (mask& (1u<<3)) {
-		msg.mask |= 1 << 7;
-	}
-
+	
 	
 	// LEFT AND RIGHT MOTOR
 	// Promjena smjerova releja ne bi se smjela dogadjati unutar bilo koje mrtve zone
@@ -159,6 +164,10 @@ void handle_input(float axis0, float axis1, float axis2, float axis3, unsigned m
 	else
 			motor_intensity(center_motor, axis2);
 	
+	
+	// KONTROLA LEDICA
+	
+	// POWER DOWN SISTEM
 }
 
 char buf[1024];
