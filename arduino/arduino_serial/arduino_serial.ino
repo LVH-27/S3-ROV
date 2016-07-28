@@ -67,11 +67,12 @@ ISR(TIMER1_COMPA_vect) {
 	// Consecutively drop signals
 	int i = 0;
 	unsigned int timer = 0;
+	unsigned int passed = 0;
 	while (i < 3){
-		timer = (sorted[i].throttle * 1000) / 255 + 1000 - timer;
-		
-		if (timers[i] > 0)
-		  delayMicroseconds(timers[i]);
+		timer = (sorted[i].throttle * 1000) / 255 + 1000 - passed;		
+		if (timer > 0)
+			delayMicroseconds(timer);
+		passed += timer;
 		
 		digitalWrite(sorted[i].esc, LOW);
 		
@@ -114,7 +115,7 @@ char led_status = 0;
 char led_latch = 0;
 
 void loop(){
-	
+  
 	// If there is serial data, wait for header and receive
 	if (Serial.available() > 0){
 		
@@ -172,7 +173,9 @@ void loop(){
 		for (int i = 0; i < 3; i++)
 			motors[i].throttle = 0;
 		delay(1000);
-		motors[i].direction = 0;
+		for (int i = 0; i < 3; i++)
+			motors[i].direction = 0;
+		delay(1000);
 	}
 	
 }
