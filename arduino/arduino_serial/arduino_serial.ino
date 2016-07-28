@@ -21,19 +21,20 @@ rpi_msg_t rpi_msg;
 #define RIGHT_REVERSE 2
 #define CENTER_REVERSE 3
 
-#define LED_PIN 9
+#define LED_PIN 5
 #define LEFT_REV_PIN 8
 #define RIGHT_REV_PIN 7
 #define CENTER_REV_PIN 6
 
-#define ESC_LEFT_PIN 10
-#define ESC_RIGHT_PIN 11
-#define ESC_CENTER_PIN 12
+#define ESC_LEFT_PIN 11
+#define ESC_RIGHT_PIN 10
+#define ESC_CENTER_PIN 9
 
 struct motor_t {
 	int esc;
 	unsigned short throttle;
 	char direction;
+	char direction_pin;
 };
 
 motor_t motors[3];
@@ -45,38 +46,13 @@ enum {left_motor, right_motor, center_motor};
 	ESC throttle function
 */
 ISR(TIMER1_COMPA_vect) {
-	
-	// Sort by duration
-	motor_t *sorted = (motor_t *) malloc(3*sizeof(motor_t));
-	memcpy(sorted, motors, 3*sizeof(motor_t));
-	motor_t tmp_motor;
-	for (int i = 0; i < 2; i++){
-		for (int j = 0; j < 2 - i; j++){
-			if (sorted[j].throttle > sorted[j+1].throttle){
-				tmp_motor = sorted[j];
-				sorted[j] = sorted[j+1];
-				sorted[j+1] = tmp_motor;
-			}
-		}
-	}
-	
-	// All signals high
-	for (int i = 0; i < 3; i++)
-		digitalWrite(sorted[i].esc, HIGH);
-	
-	// Consecutively drop signals
-	int i = 0;
-	unsigned int timer = 0;
-	unsigned int passed = 0;
-	while (i < 3){
-		timer = (sorted[i].throttle * 1000) / 255 + 1000 - passed;		
-		if (timer > 0)
-			delayMicroseconds(timer);
-		passed += timer;
+	for (int i = 0; i < 3; i++){
+		unsigned int duty = map(motors[i].throttle, 0, 255, 1000, 2000);
 		
-		digitalWrite(sorted[i].esc, LOW);
-		
-		i++;
+		digitalWrite(motors[i].esc, HIGH);
+		delayMicroseconds(duty);
+		digitalWrite(motors[i].esc, LOW);
+		delayMicroseconds(2000 - duty);
 	}
 }
 
@@ -89,19 +65,18 @@ void setup(){
 	motors[0].esc = ESC_LEFT_PIN;
 	motors[1].esc = ESC_RIGHT_PIN;
 	motors[2].esc = ESC_CENTER_PIN;
-	for (int i = 0; i < 3; i++){
-		motors[i].throttle = 0;
-		motors[i].direction = 0;
-	}
+	motors[0].direction_pin = LEFT_REV_PIN;
+	motors[1].direction_pin = RIGHT_REV_PIN;
+	motors[2].direction_pin = CENTER_REV_PIN;
 	
 	// Timer1 interrupt
 	TCCR1A = 0;
 	TCCR1B = 0;
 	TCNT1 = 0;
 	
-	TCCR1B |= (1 << CS11 | 1 << CS10);	// Prescaler 64
-	OCR1A = 1250;							// 5000 ms (ESC clock) = 200 Hz
-											// 16 MHz / 64 / 200 Hz
+	TCCR1B |= (1 << CS11 | 1 << CS10);		// Prescaler 64
+	OCR1A = 5150;							// 20 ms (ESC clock) = 50 Hz
+											// 16 MHz / 64 / 50 Hz = 5000 + measured time
 	TCCR1B |= (1 << WGM12);					// CTC mode of operation
 	TIMSK1 |= (1 << OCIE1A);				// Enable interrupt
 	
@@ -133,7 +108,7 @@ void loop(){
 	}
 	
 	for (int i = 0; i < 3; i++){
-		char direction = ((rpi_msg.mask & (1 << (i+1))) == 0);
+		char direction = ((rpi_msg.mask & (1 << (i+1))) != 0);
 		
 		// If the direction has changed, wait for 1s before changing direction
 		if (direction != motors[i].direction){
@@ -150,7 +125,7 @@ void loop(){
 			direction_halt[i] = 0;
 		
 		// If the direction change is in progress halt the motor
-		if ((direction_halt[i] != 0) && (direction == motors[i].direction))
+		if (direction_halt[i] == 0)
 			motors[i].throttle = rpi_msg.throttle[i];
 		else
 			motors[i].throttle = 0;
