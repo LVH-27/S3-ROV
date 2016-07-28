@@ -44,9 +44,7 @@ enum {left_motor, right_motor, center_motor};
 	Timer1 interrupt routine
 	ESC throttle function
 */
-ISR(TIMER1_COMPA_vect)
-{
-	unsigned int timers[3] = {0};
+ISR(TIMER1_COMPA_vect) {
 	
 	// Sort by duration
 	motor_t *sorted = (motor_t *) malloc(3*sizeof(motor_t));
@@ -63,21 +61,20 @@ ISR(TIMER1_COMPA_vect)
 	}
 	
 	// All signals high
-	for (int i = 0; i < 3; i++){
+	for (int i = 0; i < 3; i++)
 		digitalWrite(sorted[i].esc, HIGH);
-		timers[i] = (sorted[i].throttle * 1000) / 255 + 1000;
-	}
 	
 	// Consecutively drop signals
 	int i = 0;
+	unsigned int timer = 0;
 	while (i < 3){
+		timer = (sorted[i].throttle * 1000) / 255 + 1000 - timer;
+		
 		if (timers[i] > 0)
 		  delayMicroseconds(timers[i]);
 		
 		digitalWrite(sorted[i].esc, LOW);
 		
-		for(int j = i; j < 3; j++)
-			timers[j] -= timers[i];
 		i++;
 	}
 }
@@ -101,7 +98,7 @@ void setup(){
 	TCCR1B = 0;
 	TCNT1 = 0;
 	
-	TCCR1B |= ((1 << CS11) | (1 << CS10));	// Prescaler 64
+	TCCR1B |= (1 << CS11 | 1 << CS10);	// Prescaler 64
 	OCR1A = 1250;							// 5000 ms (ESC clock) = 200 Hz
 											// 16 MHz / 64 / 200 Hz
 	TCCR1B |= (1 << WGM12);					// CTC mode of operation
@@ -175,6 +172,7 @@ void loop(){
 		for (int i = 0; i < 3; i++)
 			motors[i].throttle = 0;
 		delay(1000);
+		motors[i].direction = 0;
 	}
 	
 }
