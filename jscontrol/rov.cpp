@@ -222,7 +222,7 @@ int main (int argc, char** argv)
 		unsigned in;		
 		
 		ard_msg.header = 0xFF00FF00;
-		ard_msg.mask = 0x80;
+		ard_msg.mask = 0x81;
 		
 		handle_input(msg.f1, msg.f2, msg.f3, msg.f4, msg.mask);
 		
