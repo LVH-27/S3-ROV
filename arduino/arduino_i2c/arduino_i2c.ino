@@ -1,6 +1,9 @@
 #include <stdlib.h>
 #include <avr/io.h>
 #include <avr/interrupt.h>
+#include <Wire.h>
+
+#define I2C_ADDR 4
 
 struct __attribute((__packed__)) rpi_msg_t {
 	int header;
@@ -60,6 +63,8 @@ void setup(){
 	noInterrupts();
 	
 	Serial.begin(9600);
+	Wire.begin(4);
+	Wire.onReceive(rpi_msg_read);
 	
 	// Init motors
 	motors[0].esc = ESC_LEFT_PIN;
@@ -89,23 +94,29 @@ unsigned long halt_timers[3] = {0};
 char led_status = 0;
 char led_latch = 0;
 
-void loop(){
-  
+void rpi_msg_read(int){
 	// If there is serial data, wait for header and receive
-	if (Serial.available() > 0){
+	if (Wire.available() > 0){
+		if (digitalRead(13) == LOW)
+			digitalWrite(13, HIGH);
+		else
+			digitalWrite(13,LOW);
 		
-		unsigned char serial_input = Serial.read();
+		unsigned char serial_input = Wire.read();
 		rpi_msg.header <<= 8;
-		rpi_msg.header &= (int) serial_input;
+		rpi_msg.header &= (unsigned int) serial_input;
 				
-		if ( rpi_msg.header == 0xFF00FF00 ){	
+		if ( rpi_msg.header == 0xFF00FF00 ){
 			for (int i = 0; i < 3; i++)
-				rpi_msg.throttle[i] = Serial.read();
-			rpi_msg.mask = Serial.read();
+				rpi_msg.throttle[i] = Wire.read();
+			rpi_msg.mask = Wire.read();
 			
 			rpi_msg.header = 0;
 		}
 	}
+}
+
+void loop(){
 	
 	for (int i = 0; i < 3; i++){
 		char direction = ((rpi_msg.mask & (1 << (i+1))) != 0);
