@@ -8,7 +8,7 @@
 #include <signal.h>
 
 #include<wiringPi.h>
-#include<wiringSerial.h>
+#include<wiringPiI2C.h>
 
 #include <sys/time.h>
 
