@@ -63,8 +63,8 @@ void setup(){
 	noInterrupts();
 	
 	Serial.begin(9600);
-	Wire.begin(4);
-	Wire.onReceive(rpi_msg_read);
+//	Wire.begin(4);
+//  Wire.onReceive(rpi_msg_recv);
 	
 	// Init motors
 	motors[0].esc = ESC_LEFT_PIN;
@@ -94,30 +94,25 @@ unsigned long halt_timers[3] = {0};
 char led_status = 0;
 char led_latch = 0;
 
-void rpi_msg_read(int){
-	// If there is serial data, wait for header and receive
-	if (Wire.available() > 0){
-		if (digitalRead(13) == LOW)
-			digitalWrite(13, HIGH);
-		else
-			digitalWrite(13,LOW);
-		
-		unsigned char serial_input = Wire.read();
-		rpi_msg.header <<= 8;
-		rpi_msg.header &= (unsigned int) serial_input;
-				
-		if ( rpi_msg.header == 0xFF00FF00 ){
-			for (int i = 0; i < 3; i++)
-				rpi_msg.throttle[i] = Wire.read();
-			rpi_msg.mask = Wire.read();
-			
-			rpi_msg.header = 0;
-		}
-	}
+void rpi_msg_recv(int){
+  
+  // If there is serial data, wait for header and receive
+  
+    unsigned char serial_input = Wire.read();
+    rpi_msg.header <<= 8;
+    rpi_msg.header &= (unsigned int) serial_input;
+        
+    if ( rpi_msg.header == 0xFF00FF00 ){
+      for (int i = 0; i < 3; i++)
+        rpi_msg.throttle[i] = Wire.read();
+      rpi_msg.mask = Wire.read();
+      
+      rpi_msg.header = 0;
+    }
+  
 }
 
 void loop(){
-	
 	for (int i = 0; i < 3; i++){
 		char direction = ((rpi_msg.mask & (1 << (i+1))) != 0);
 		
