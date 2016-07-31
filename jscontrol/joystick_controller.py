@@ -4,7 +4,7 @@ from pygame.locals import *
 networking = True
 if networking:
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock.connect(('192.168.7.246', 1234))
+    sock.connect(('192.168.10.10', 1234))
 
 pygame.init()
 pygame.joystick.init()
