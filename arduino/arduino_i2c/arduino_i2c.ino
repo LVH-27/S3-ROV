@@ -44,30 +44,11 @@ struct motor_t {
 motor_t motors[3];
 enum {left_motor, right_motor, center_motor};
 
-/**
-	Timer1 interrupt routine
-	ESC throttle function
-*/
-ISR(TIMER1_COMPA_vect) {
-	for (int i = 0; i < 3; i++){
-		digitalWrite(motors[i].direction_pin, motors[i].direction ? HIGH : LOW);
-		unsigned int duty = map(motors[i].throttle, 0, 255, 1000, 2000);
-		
-		digitalWrite(motors[i].esc, HIGH);
-		delayMicroseconds(duty);
-		digitalWrite(motors[i].esc, LOW);
-		delayMicroseconds(2000 - duty);
-	}
-}
-int dbgled;
+
 void setup(){
 	noInterrupts();
 	
-	pinMode(13, OUTPUT);
-	dbgled = LOW;
-	digitalWrite(13, dbgled);
-	
-	Serial.begin(250000);
+	//Serial.begin(250000);
 	Wire.begin(4);
     Wire.onReceive(msg_recv);
 	
@@ -93,14 +74,27 @@ void setup(){
 	interrupts();
 }
 
-char direction_halt[3] = {0};
-unsigned long halt_timers[3] = {0};
-
-char led_status = 0;
-char led_latch = 0;
+/**
+	Timer1 interrupt routine
+	ESC throttle function
+*/
+ISR(TIMER1_COMPA_vect) {
+	for (int i = 0; i < 3; i++){
+		digitalWrite(motors[i].direction_pin, motors[i].direction ? HIGH : LOW);
+		unsigned int duty = map(motors[i].throttle, 0, 255, 1000, 2000);
+		
+		digitalWrite(motors[i].esc, HIGH);
+		delayMicroseconds(duty);
+		digitalWrite(motors[i].esc, LOW);
+		delayMicroseconds(2000 - duty);
+	}
+}
 
 rpi_msg_t recv;
 int position;
+/**
+	I2C data receive function
+*/
 void msg_recv(int size){
 	while (Wire.available() > 0){
 		
@@ -122,9 +116,11 @@ void msg_recv(int size){
 					rpi_msg = recv;
 					
 					// DEBUG OUTPUT
+					/*
 					char a[32];
 					sprintf(a, "0x%x 0x%x 0x%x 0x%x 0x%x 0x%x END", rpi_msg.header, rpi_msg.throttle[0], rpi_msg.throttle[1], rpi_msg.throttle[2], rpi_msg.mask, rpi_msg.tail);
 					Serial.println(a);
+					*/
 				}
 				
 				recv.header = 0;
@@ -141,91 +137,17 @@ void msg_recv(int size){
 			}
 			
 		}
-		
-		
 	}
 }
 
 
-/*
-int cnt = 0;
-int position = 0;
-int index = 0;
-void rpi_msg_recv(int size){
+char direction_halt[3] = {0};
+unsigned long halt_timers[3] = {0};
 
-	while (Wire.available() > 0){
-		unsigned char buf = Wire.read();
-		
-		dbgled = (dbgled == LOW) ? HIGH : LOW;
-		digitalWrite(13,dbgled);
-		
-		if (rpi_msg.header == 0xb55b){
-			if (position == 3){
-				rpi_msg.mask = buf;
-				rpi_msg.header = 0;
-				position = 0;
-			} else {
-				rpi_msg.throttle[position] = buf;
-				position++;
-			}
-		} else {
-			rpi_msg.header <<= 8;
-			rpi_msg.header |= buf;
-		}
-		
-	}
-	
-	/*for (int i = 0; i < 8; i++){
-		char a[32];
-		sprintf(a, "0x%x ", buf[i]);
-		Serial.print(a);
-	}
-	Serial.println();
-	char a[32];
-	sprintf(a, "0x%x 0x%x 0x%x 0x%x 0x%x END", rpi_msg.header, rpi_msg.throttle[0], rpi_msg.throttle[1], rpi_msg.throttle[2], rpi_msg.mask);
-	//sprintf(a, "0x%x", rpi_msg.header);
-	if (rpi_msg.header == 0xb55b && (rpi_msg.mask & 0x81) == 0x81)
-		Serial.println(a);
-	
-	return;
-	
-  
-   // If there is serial data, wait for header and receive
-	for (int i = 0; i < 4; i++){
-		unsigned char serial_input = Wire.read();
-		rpi_msg.header <<= 8;
-		rpi_msg.header &= (unsigned int) serial_input;
-	}
-
-	if ( rpi_msg.header == 0xFF00FF00 ){
-		  dbgled = (dbgled == LOW) ? HIGH : LOW;
-		digitalWrite(13, dbgled);
-		cnt++;
-    Serial.println(cnt);
-
-		for (int i = 0; i < 3; i++)
-			rpi_msg.throttle[i] = Wire.read();
-		rpi_msg.mask = Wire.read();
-		rpi_msg.header = 0;
-	}
-  
-
-  while (Wire.available() > 0)
-	Wire.read();
-}
-
-*/
-
-
-
-
+char led_status = 0;
+char led_latch = 0;
 
 void loop(){
-	
-	
-	
-
-	
 	
 	for (int i = 0; i < 3; i++){
 		char direction = ((rpi_msg.mask & (1 << (i+1))) != 0);
