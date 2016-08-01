@@ -49,7 +49,7 @@ void setup(){
 	noInterrupts();
 	
 	//Serial.begin(250000);
-	Wire.begin(4);
+	Wire.begin(I2C_ADDR);
     Wire.onReceive(msg_recv);
 	
 	// Init motors
@@ -100,8 +100,8 @@ void msg_recv(int size){
 		
 		unsigned char buf = Wire.read();
 		
-		if (rpi_msg.header != 0xb5){
-			rpi_msg.header = buf;
+		if (recv.header != 0xb5){
+			recv.header = buf;
 		} else {
 			if (position < 3){
 				recv.throttle[position] = buf;
@@ -195,6 +195,8 @@ void loop(){
 		for (int i = 0; i < 3; i++)
 			motors[i].direction = 0;
 		delay(1000);
+		
+		digitalWrite(LED_PIN, LOW);
 	}
 	
 }

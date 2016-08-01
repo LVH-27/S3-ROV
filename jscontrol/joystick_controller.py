@@ -23,7 +23,6 @@ while True:
     for i in range(stick.get_numbuttons()):
         mask|=stick.get_button(i)<<i
     axes = [round(float(stick.get_axis(i)), 2) for i in range(stick.get_numaxes())]
-#    axes = [ 0, 0, 0, 0 ]
 
     if kb_keys[27]:
         mask|=1<<8

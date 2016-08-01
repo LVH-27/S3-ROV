@@ -92,11 +92,11 @@ void motor_intensity(int id, float throttle_float) {
 	} else {
 		if (id == left_motor) {
 			ard_msg.mask |= 1 << LEFT_REVERSE;
-			ard_msg.thr_left = -throttle;
+			ard_msg.thr_left = throttle;
 		}
 		else if (id == right_motor) {
 			ard_msg.mask |= 1 << RIGHT_REVERSE;
-			ard_msg.thr_right = -throttle;
+			ard_msg.thr_right = throttle;
 		} else if (id == center_motor) {
 			ard_msg.mask |= 1 << CENTER_REVERSE;
 			ard_msg.thr_center = throttle;
@@ -164,13 +164,15 @@ void handle_input(float axis0, float axis1, float axis2, float axis3, unsigned m
 	else
 			motor_intensity(center_motor, axis2);
 	
+	// SERVER QUIT
+	if (mask & 1u<<8)
+		ard_msg.mask |= 1 << POWER_DOWN;
 }
 
 char buf[1024];
 
 int main (int argc, char** argv)
 {
-	unsigned mask = 255;
 
 	// Initialise server socket
 	if(argc>1)
@@ -186,7 +188,7 @@ int main (int argc, char** argv)
 	while (1) {
 		// Receiving packet
 		int len = recv(sock, buf, 4*4+4, MSG_WAITALL);
-                msg = *(srv_msg_t*)(void*)(&buf);
+        msg = *(srv_msg_t*)(void*)(&buf);
 		
 		// Init mask
 		ard_msg.mask = 0x81;
