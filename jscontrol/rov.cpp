@@ -22,7 +22,7 @@ using namespace std;
 */
 struct __attribute__((__packed__)) srv_msg_t {
     float f1, f2, f3, f4;
-    unsigned mask;
+    unsigned int mask;
 };
 
 /**
@@ -65,7 +65,6 @@ void socket_setup() {
 	fprintf(stderr, "Listening on port %d\n", port);
 	
 	sock = accept(socket_desc, 0, 0);
-	close(socket_desc);
 }
 
 /**
@@ -108,7 +107,7 @@ void motor_intensity(int id, float throttle_float) {
 /**
 	Determines the throttle for each motor
 */
-void handle_input(float axis0, float axis1, float axis2, float axis3, unsigned mask) {
+void handle_input(float axis0, float axis1, float axis2, float axis3, unsigned int mask) {
 
 	// The angle and the radius calculated below adhere to the
 	// left analog stick as represented by the image below
@@ -187,7 +186,7 @@ int main (int argc, char** argv)
 
 	while (1) {
 		// Receiving packet
-		int len = recv(sock, buf, 4*4+4, MSG_WAITALL);
+		int len = recv(sock, buf, 4*sizeof(float)+sizeof(unsigned int), MSG_WAITALL);
         msg = *(srv_msg_t*)(void*)(&buf);
 		
 		// Init mask
