@@ -60,6 +60,15 @@ void setup(){
 	motors[1].direction_pin = RIGHT_REV_PIN;
 	motors[2].direction_pin = CENTER_REV_PIN;
 	
+	// Setup pins
+	pinMode(LED_PIN, OUTPUT);
+	pinMode(ESC_LEFT_PIN, OUTPUT);
+	pinMode(ESC_RIGHT_PIN, OUTPUT);
+	pinMode(ESC_CENTER_PIN, OUTPUT);
+	pinMode(LEFT_REV_PIN, OUTPUT);
+	pinMode(RIGHT_REV_PIN, OUTPUT);
+	pinMode(CENTER_REV_PIN, OUTPUT);
+	
 	// Timer1 interrupt
 	TCCR1A = 0;
 	TCCR1B = 0;
