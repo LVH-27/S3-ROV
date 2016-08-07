@@ -153,7 +153,8 @@ void msg_recv(int size){
   }
  
 }
-
+    //Check battery voltage
+  
 void msg_req(){
     int sensorValue = analogRead (A0);
     float voltage = sensorValue * (5.0 / 1023.0);
@@ -195,8 +196,7 @@ void loop(){
   }
 
    {
-    //Check battery voltage
-  
+
   // Check for lights change
   if ((rpi_msg.mask & (1 << LED_ON)) != 0){
     if (led_latch != 1){
