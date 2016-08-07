@@ -202,6 +202,8 @@ int main (int argc, char** argv)
 			wiringPiI2CWrite(fd, ard_msg.mask);
 		wiringPiI2CWrite(fd, 0x5B);
 		
+		printf("Voltage: %f\n", wiringPiI2CRead(fd)/1000.);	
+		//printf("%d\n%d\n%d\n%d\n", ard_msg.thr_left, ard_msg.thr_right, ard_msg.thr_center, ard_msg.mask);	
 		// Quit on command
 		if (msg.mask & 1u<<8)
 			return 0;
