@@ -3,13 +3,20 @@ import numpy as np
 import struct
 import time
 
-
-COMM_PORT = "/dev/ttyUSB3"
-SER_SPEED = 9600
-STOP_BYTE = np.uint8(0b01001100)
-SER_PARITY = serial.PARITY_NONE
-SER_XON_XOFF = False
-SER_RTSCTS = False
+# example: #############################
+#COMM_PORT = "/dev/ttyUSB3"
+#SER_SPEED = 9600
+#STOP_BYTE = np.uint8(0b01001100)
+#SER_PARITY = serial.PARITY_NONE
+#SER_XON_XOFF = False
+#SER_RTSCTS = False
+#with serial.Serial(baudrate=SER_SPEED, xonxoff=SER_XON_XOFF, rtscts=SER_RTSCTS, parity=SER_PARITY, port=COMM_PORT) \
+#        as arduino:
+#    send_rov_message(arduino,
+#                     np.int16(123),
+#                     np.int16(456),
+#                     np.int16(-789),
+#                     np.uint16(101112)
 
 ########################################
 
@@ -45,11 +52,5 @@ def send_rov_message(arduino: serial.Serial, motor1: np.int16,
     return True
 
 
-with serial.Serial(baudrate=SER_SPEED, xonxoff=SER_XON_XOFF, rtscts=SER_RTSCTS, parity=SER_PARITY, port=COMM_PORT) \
-        as arduino:
-    send_rov_message(arduino,
-                     np.int16(123),
-                     np.int16(456),
-                     np.int16(-789),
-                     np.uint16(101112)
+
                      )
