@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #define MSGLEN 10
 #define MOTOR_COUNT 3
-#define STOP_BYTE 001001100
+#define STOP_BYTE 0x4C // binarno: 0100 1100 --jlkhlj
 #define RECV_TIMEOUT_MS 10000000
 
 typedef struct 

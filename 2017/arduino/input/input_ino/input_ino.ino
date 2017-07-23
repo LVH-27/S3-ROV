@@ -21,14 +21,13 @@ char raw_msg[MSGLEN];
 
 
 void setup(){
-	pinMode(GET_ROV_STATUS, OUTPUT);
 	pinMode(LED_CONTROL, OUTPUT);
 
 	esc_left.attach(ESC_LEFT);
 	esc_right.attach(ESC_RIGHT);
 	esc_center.attach(ESC_CENTER);
 
-	Serial.begin(9600);
+	Serial.begin(115200);
 	Serial.setTimeout(RECV_TIMEOUT_MS);
 }
 
@@ -45,12 +44,12 @@ void loop(){
         
         
         // TODO: implement error check in its own routine
-        if(!sumOk(sum, command.check_sum))
+        if(sumOk(sum, command.check_sum) == -1)
             {
             Serial.println("[err] incorrect checksum!");
             errorFlag = 1;
             }
-        if(!stopOk(command.stop_byte, STOP_BYTE))
+        if(stopOk(command.stop_byte, STOP_BYTE) == -1)
             {
             Serial.println("[err] incorrect stop byte!");
             errorFlag = 1;
@@ -64,9 +63,14 @@ void loop(){
     
     if(!errorFlag)
         {
-        	thr_left = map_float(command.motor[0], 0, 1023, FULL_REVERSE, FULL_FORWARD);
-        	thr_right = map_float(command.motor[1], 0, 1023, FULL_REVERSE, FULL_FORWARD);
-        	thr_center = map_float(command.motor[2], 0, 1023, FULL_REVERSE, FULL_FORWARD);
+                Serial.println("######################");
+                Serial.println(command.motor[0]);
+                Serial.println(command.motor[1]);
+                Serial.println(command.motor[2]);
+                Serial.println(command.flags);
+        	float thr_left = map_float(command.motor[0], 0, 1023, FULL_REVERSE, FULL_FORWARD);
+        	float thr_right = map_float(command.motor[1], 0, 1023, FULL_REVERSE, FULL_FORWARD);
+        	float thr_center = map_float(command.motor[2], 0, 1023, FULL_REVERSE, FULL_FORWARD);
         	esc_left.writeMicroseconds(thr_left);
         	esc_right.writeMicroseconds(thr_right);
         	esc_center.writeMicroseconds(thr_center);

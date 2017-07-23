@@ -2,11 +2,11 @@ import serial
 import numpy as np
 import struct
 import time
+STOP_BYTE = np.uint8(0b01001100)
 
 # example: #############################
 #COMM_PORT = "/dev/ttyUSB3"
 #SER_SPEED = 9600
-#STOP_BYTE = np.uint8(0b01001100)
 #SER_PARITY = serial.PARITY_NONE
 #SER_XON_XOFF = False
 #SER_RTSCTS = False
@@ -24,13 +24,18 @@ import time
 def send_rov_message(arduino: serial.Serial, motor1: np.int16,
                      motor2: np.int16, motor3: np.int16, command_flags: np.uint16):
 
+    print("motor1:", motor1)
+    print("motor2:", motor2)
+    print("motor3:", motor3)
+    print("command:", command_flags)
+
     bin_rep = ""
     bin_rep += np.binary_repr(motor1, 16)
     bin_rep += np.binary_repr(motor2, 16)
     bin_rep += np.binary_repr(motor3, 16)
     bin_rep += np.binary_repr(command_flags)
 
-    print(bin_rep)
+    #print(bin_rep)
     check_sum = np.uint8(bin_rep.count('1'))
 
     print("chksm:", check_sum)
@@ -51,6 +56,16 @@ def send_rov_message(arduino: serial.Serial, motor1: np.int16,
 
     return True
 
-
-
-                     )
+#example: #############################
+#COMM_PORT = "/dev/ttyUSB1"
+#SER_SPEED = 9600
+#SER_PARITY = serial.PARITY_NONE
+#SER_XON_XOFF = False
+#SER_RTSCTS = False
+#with serial.Serial(baudrate=SER_SPEED, xonxoff=SER_XON_XOFF, rtscts=SER_RTSCTS, parity=SER_PARITY, port=COMM_PORT) \
+#       as arduino:
+#   send_rov_message(arduino,
+#                    np.int16(123),
+#                    np.int16(456),
+#                    np.int16(-789),
+#                    np.uint16(101112))

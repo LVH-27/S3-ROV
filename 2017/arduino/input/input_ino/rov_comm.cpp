@@ -16,7 +16,7 @@ int fillMsg(char* raw_msg, msg &message)
         message.motor[i] = message.motor[i] << 8;
         message.motor[i] |= (raw_msg[2*i + 1] & 0b11111111);
         }
-          
+        
     message.flags |= (raw_msg[2*i] & 0b11111111);
     message.flags = message.flags << 8; 
     message.flags |= (raw_msg[2*i + 1] & 0b11111111);
@@ -73,7 +73,7 @@ void waitForStop(char byteWait = STOP_BYTE)
         }
     Serial.print("error recovered, lost ");
     Serial.print(lostCount);
-    Serial.println(" bytes
+    Serial.println(" bytes");
     return;
     }
 

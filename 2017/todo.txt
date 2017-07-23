@@ -21,10 +21,20 @@ Senzorski Arduino:
 
 
 
-#######
+####################################################
 
-probat Serial na 115200
+##probat Serial na 115200 - lol jebeš ovo, na 9600 se grči - lol ipak ne, 9600 je bilo presporo pa je odlazilo u vrit
+	vjerojatno je na kompu prepunio serijski buffer
+	pražnjenje buffera s podacima je presporo jer je red-dva veličine sporije od obrade podataka, a python samo puni
+	>>>> jel greška u tom slučaju lančana?
+
+dinamičko određivanje serial porta
+##provjeri zakaj pri full gasu ne trza - zajebo sam s MOTOR_MAP_CONST - nije trebalo bit 2**16-1 nego 2**15-1
+
 LED control, internal temperature control, battery control
+proto-TCP implementirat - da Python pošalje bajt i čeka odgovor od ovog debila
+	safety mehanizama imamo onda: duljina, checksum, stop-byte i još proto-tcp
+
 
 
 By loki:

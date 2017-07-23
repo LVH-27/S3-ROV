@@ -2,7 +2,7 @@
 
 void setup()
     {
-    Serial.begin(9600);
+    Serial.begin(115200);
     Serial.setTimeout(RECV_TIMEOUT_MS);
     }
 
@@ -18,22 +18,15 @@ void loop()
         {
         fillMsg(raw_msg, command);
         uint8_t sum = calcSum(raw_msg);
-        Serial.println("######################");
-        Serial.println(command.motor[0]);
-        Serial.println(command.motor[1]);
-        Serial.println(command.motor[2]);
-        Serial.println(command.flags);
-        Serial.println(command.check_sum);
-        Serial.println(command.stop_byte);
-        Serial.println(sum);
         
-        // TODO: implement error check in it's own routine
-        if(!sumOk(sum, command.check_sum))
+        
+        // TODO: implement error check in it's own routine -lkbljkbjhb
+        if(sumOk(sum, command.check_sum) == -1)
             {
             Serial.println("[err] incorrect checksum!");
             errorFlag = 1;
             }
-        if(!stopOk(command.stop_byte, STOP_BYTE))
+        if(!stopOk(command.stop_byte, STOP_BYTE) == -1)
             {
             Serial.println("[err] incorrect stop byte!");
             errorFlag = 1;
@@ -48,6 +41,13 @@ void loop()
     
     if(!errorFlag)
         {
+        Serial.println("######################");
+        Serial.println(command.motor[0]);
+        Serial.println(command.motor[1]);
+        Serial.println(command.motor[2]);
+        Serial.println(command.flags);
+        Serial.println(command.check_sum);
+        Serial.println(command.stop_byte);
         //thing to do if all checks passed;
         }
     else
