@@ -27,7 +27,7 @@ float map_float(int value, int min_, int max_, float min_o, float max_o)
 
 void loop() {
   val = analogRead(potpin);            // reads the value of the potentiometer (value between 0 and 1023)
-  val_ = map_float(val, 0, 1023, 800, 2200);     // scale it to use it with the servo (value between 0 and 180)
+  val_ = map_float(val, 0, 1023, 900, 2100);     // scale it to use it with the servo (value between 0 and 180)
   Serial.print("val: ");
   Serial.print(val);
   Serial.print("    duty: ");

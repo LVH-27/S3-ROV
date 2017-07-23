@@ -20,3 +20,4 @@ int sumOk(uint8_t recvSum, uint8_t calcSum);   // return -1 if sums don't match
 int stopOk(uint8_t recvStop, uint8_t trueStop/* = STOP_BYTE*/);
 void waitForStop(char byteWait);               // if some error occured (length not matching, sum not matching, stop byte incorrect...)
                                                //drop messages until stopbyte is received, could be more efficiently implemented...
+float map_float(int value, int min_, int max_, float min_o, float max_o); // loki's float-map implementation

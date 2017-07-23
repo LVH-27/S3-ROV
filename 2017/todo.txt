@@ -24,6 +24,8 @@ Senzorski Arduino:
 #######
 
 probat Serial na 115200
+LED control, internal temperature control, battery control
+
 
 By loki:
 

@@ -69,3 +69,7 @@ void waitForStop(char byteWait = STOP_BYTE)
         }
     return;
     }
+
+float map_float(int value, int min_, int max_, float min_o, float max_o){
+  return (float) (value - min_) * (max_o - min_o) / (max_ - min_) + min_o;
+}
