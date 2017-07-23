@@ -1,0 +1,26 @@
+Komp:
+	USB-to-TTL Arduino
+	Interface za joystick na kompu - i mapiranja i sve
+	Arduino kod za motore - tri motora, ko i prije
+	Mogućnost proslijedit neki string od kompa senzorskom Arduinu i obratno
+
+motorski Arduino unutra, senzorski vani
+
+Motorski Arduino:
+	-motori, naravno
+	-nekoliko digitalnih izlaza za kontrolu LED-ica, kamera, votevr
+	-senzorika za baterije
+		snima svaku ćeliju zasebno 3x3.7V u seriji; za svaku od njih senzor napona
+	-senzori temperature za grijanje u podmornici
+		-ideja je da Arduinče sâmo to prati i poduzme korektivne akcije i alarmira korisnika
+	-komp mora imat mogućnost tražit status
+
+Senzorski Arduino:
+	-sluša na I2C
+	-većina senzora ima neki analogni output
+
+
+
+#######
+
+probat Serial na 115200

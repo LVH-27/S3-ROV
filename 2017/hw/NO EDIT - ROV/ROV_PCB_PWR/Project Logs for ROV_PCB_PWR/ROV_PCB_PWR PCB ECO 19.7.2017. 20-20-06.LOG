@@ -1,0 +1,17 @@
+Removed Pin From Net: NetName=DGND Pin=P5-6
+Removed Pin From Net: NetName=DGND Pin=P5-8
+Added Pin To Net: NetName=DGND Pin=P5-5
+Added Pin To Net: NetName=DGND Pin=P5-7
+Added Pin To Net: NetName=DGND Pin=P5-9
+Added Pin To Net: NetName=NetP5_4 Pin=P5-4
+Added Pin To Net: NetName=NetP5_4 Pin=Q7-1
+Added Pin To Net: NetName=NetP5_4 Pin=R8-2
+Added Net: Name=NetP5_4
+Added Pin To Net: NetName=NetP5_6 Pin=P5-6
+Added Pin To Net: NetName=NetP5_6 Pin=Q6-1
+Added Pin To Net: NetName=NetP5_6 Pin=R7-2
+Added Net: Name=NetP5_6
+Added Pin To Net: NetName=NetP5_8 Pin=P5-8
+Added Pin To Net: NetName=NetP5_8 Pin=Q5-1
+Added Pin To Net: NetName=NetP5_8 Pin=R6-2
+Added Net: Name=NetP5_8

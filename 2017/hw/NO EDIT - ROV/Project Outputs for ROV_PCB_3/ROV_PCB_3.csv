@@ -1,0 +1,14 @@
+Comment;Description;Designator;Footprint;Part number;Quantity;Supplier;Unit price
+;;;;;;;
+1u;Capacitor;C5;RAD-0.1;C2190;1;Kronos;0.74 kn
+Header charge;Header, 5-Pin, Dual row;P2;HDR2X5;;1;;
+Header PWR;Header, 5-Pin, Dual row;P5;HDR2X5;;1;;
+I2C;Header, 4-Pin;P8;HDR1X4;;1;;
+Serial;Header, 4-Pin;P9;HDR1X4;;1;;
+ESC_L header;Header, 3-Pin;P13;HDR1X3;;1;;
+ESC_R header;Header, 3-Pin;P14;HDR1X3;;1;;
+ESC_C header;Header, 3-Pin;P15;HDR1X3;;1;;
+Si2307BDS;P-Channel MOSFET;Q4;SOT23_M;;1;Elmatis;4.00 kn
+10k;Resistor;R5;AXIAL-0.3;;1;;
+Arduino_Nano;;U1;DIP30;;1;;
+LM35;;U3, U4, U5;HDR1X3;;3;;

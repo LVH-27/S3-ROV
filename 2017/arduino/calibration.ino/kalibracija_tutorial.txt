@@ -1,0 +1,14 @@
+KALIBRACIJA - guide!
+
+1. Iskopčat Arduino iz USB-a - napajat će se iz ESC-a.
+2. Stavit maksimalni throttle, da ESC pri paljenju uđe u setup mode - to signalizira s jednim kratkim beepom odmah nakon inicijalna tri normalna beepa (pri paljenju, naravno). Taj signal je PWM perioda 22 ms, a duty cycle je 2100 us.
+3. ESC spojit na Arduino (sa sve tri žice - 5V, GND, signal na digitalni pin 9).
+4. Uključit ESC na napajanje (preko baterijskih terminala).
+5. Nakon toga bi se trebali čut spomenut beepovi.
+6. Throttle bacit na željeni minimum (u našem slučaju 900 us) i čekat dva beepa (ista ko treći beep pri paljenju).
+7. Throttle bacit na nulu/netural/ler (u našem slučaju 1500 us) i pričekat 3 beepa i još jedan drugačiji kao potvrda gotovog setupa.
+
+
+Napomene: 
+> U setup se ulazi kad je throttle *pri paljenju* na nekoj visokoj razini (oko 75%? neš takvo), pa bi se pri normalnom, non-setup paljenju ESC-a throttle trebalo držat ispod toga - idealno na sredini (ler!).
+> Ako se stavi prekratak duty cycle za minimalni throttle (u našem slučaju 800 us), iz nekog razloga opet uđe u setup i sve ode u vražju mater, pa pripazit na to!

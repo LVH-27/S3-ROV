@@ -1,0 +1,13 @@
+Comment;Description;Designator;Footprint;Part Number;Quantity;Supplier;Unit Price
+;;;;;;;
+1N4007;1 Amp General Purpose Rectifier;D3;DO-41;;1;;
+Elmatis br.151;Single-Pole Single-Throw Relay;K2;REL151;151;1;Elmatis;24 kn
+Elmatis br.112;Dual-Pole Single-Throw Relay;K3;REL112;112;1;Elmatis;37 kn
+Battery;Header, 2-Pin;P1;Klema;;1;;
+Header logic;Header, 5-Pin, Dual row;P2;HDR2X5;;1;;
+Charger power;Header, 2-Pin;P5;Klema;;1;;
+Battery balance;Header, 4-Pin;P6;HDR1X4;;1;;
+Charger balance;Header, 4-Pin;P7;HDR1X4;;1;;
+PNP 2N3906;PNP Bipolar Transistor;Q3;MHDR1X3;;1;Kronos;0.50 kn
+10k;Resistor;R3;AXIAL-0.3;;1;;
+47;Resistor;R4;AXIAL-0.3;;1;;

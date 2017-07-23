@@ -1,0 +1,63 @@
+Added Component: Designator=D3(DO-41)
+Added Component: Designator=K2(REL151)
+Added Component: Designator=K3(REL112)
+Added Component: Designator=P1(Klema)
+Added Component: Designator=P2(HDR2X5)
+Added Component: Designator=P5(Klema)
+Added Component: Designator=P6(HDR1X4)
+Added Component: Designator=P7(HDR1X4)
+Added Component: Designator=Q3(SOT-23B_N)
+Added Component: Designator=R3(AXIAL-0.3)
+Added Component: Designator=R4(AXIAL-0.3)
+Added Pin To Net: NetName=DGND Pin=P2-8
+Added Pin To Net: NetName=DGND Pin=P2-9
+Added Pin To Net: NetName=DGND Pin=P2-10
+Added Net: Name=DGND
+Added Pin To Net: NetName=GND Pin=D3-1
+Added Pin To Net: NetName=GND Pin=K2-4
+Added Pin To Net: NetName=GND Pin=K3-6
+Added Pin To Net: NetName=GND Pin=P1-2
+Added Pin To Net: NetName=GND Pin=P5-2
+Added Pin To Net: NetName=GND Pin=P6-4
+Added Pin To Net: NetName=GND Pin=P7-4
+Added Net: Name=GND
+Added Pin To Net: NetName=NetD3_2 Pin=D3-2
+Added Pin To Net: NetName=NetD3_2 Pin=K2-3
+Added Pin To Net: NetName=NetD3_2 Pin=Q3-1
+Added Pin To Net: NetName=NetD3_2 Pin=R4-2
+Added Net: Name=NetD3_2
+Added Pin To Net: NetName=NetK2_2 Pin=K2-2
+Added Pin To Net: NetName=NetK2_2 Pin=P5-1
+Added Pin To Net: NetName=NetK2_2 Pin=P7-1
+Added Net: Name=NetK2_2
+Added Pin To Net: NetName=NetK3_1 Pin=K3-1
+Added Pin To Net: NetName=NetK3_1 Pin=P2-7
+Added Pin To Net: NetName=NetK3_1 Pin=P6-3
+Added Net: Name=NetK3_1
+Added Pin To Net: NetName=NetK3_2 Pin=K3-2
+Added Pin To Net: NetName=NetK3_2 Pin=P7-3
+Added Net: Name=NetK3_2
+Added Pin To Net: NetName=NetK3_3 Pin=K3-3
+Added Pin To Net: NetName=NetK3_3 Pin=P2-5
+Added Pin To Net: NetName=NetK3_3 Pin=P6-2
+Added Net: Name=NetK3_3
+Added Pin To Net: NetName=NetK3_4 Pin=K3-4
+Added Pin To Net: NetName=NetK3_4 Pin=P7-2
+Added Net: Name=NetK3_4
+Added Pin To Net: NetName=NetK3_5 Pin=K3-5
+Added Pin To Net: NetName=NetK3_5 Pin=R4-1
+Added Net: Name=NetK3_5
+Added Pin To Net: NetName=NetP2_6 Pin=P2-6
+Added Pin To Net: NetName=NetP2_6 Pin=R3-1
+Added Net: Name=NetP2_6
+Added Pin To Net: NetName=NetQ3_2 Pin=Q3-2
+Added Pin To Net: NetName=NetQ3_2 Pin=R3-2
+Added Net: Name=NetQ3_2
+Added Pin To Net: NetName=VBATT Pin=K2-1
+Added Pin To Net: NetName=VBATT Pin=P1-1
+Added Pin To Net: NetName=VBATT Pin=P2-3
+Added Pin To Net: NetName=VBATT Pin=P6-1
+Added Pin To Net: NetName=VBATT Pin=Q3-3
+Added Net: Name=VBATT
+Added Class: Name=ROV_PCB_CHARGE
+Added Room: Name=ROV_PCB_CHARGE

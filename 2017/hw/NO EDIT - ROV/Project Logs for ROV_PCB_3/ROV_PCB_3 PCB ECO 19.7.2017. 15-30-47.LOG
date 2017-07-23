@@ -1,0 +1,84 @@
+Removed Pin From Net: NetName=DGND Pin=C2-2
+Removed Pin From Net: NetName=5V Pin=C3-1
+Removed Pin From Net: NetName=DGND Pin=C3-2
+Removed Pin From Net: NetName=DGND Pin=D3-1
+Removed Pin From Net: NetName=DGND Pin=K2-4
+Removed Pin From Net: NetName=DGND Pin=K3-6
+Removed Pin From Net: NetName=DGND Pin=L1-2
+Removed Pin From Net: NetName=DGND Pin=Q5-2
+Removed Pin From Net: NetName=DGND Pin=Q6-2
+Removed Pin From Net: NetName=DGND Pin=Q7-2
+Removed Pin From Net: NetName=DGND Pin=R6-1
+Removed Pin From Net: NetName=DGND Pin=R7-1
+Removed Pin From Net: NetName=DGND Pin=R8-1
+Removed Pin From Net: NetName=DGND Pin=U2-2
+Removed Pin From Net: NetName=5V Pin=U2-3
+Removed Member From Class: ClassName=ROV_PCB_3 Member=C1
+Removed Member From Class: ClassName=ROV_PCB_3 Member=C2
+Removed Member From Class: ClassName=ROV_PCB_3 Member=C3
+Removed Member From Class: ClassName=ROV_PCB_3 Member=C4
+Removed Member From Class: ClassName=ROV_PCB_3 Member=D1
+Removed Member From Class: ClassName=ROV_PCB_3 Member=D2
+Removed Member From Class: ClassName=ROV_PCB_3 Member=D3
+Removed Member From Class: ClassName=ROV_PCB_3 Member=K1
+Removed Member From Class: ClassName=ROV_PCB_3 Member=K2
+Removed Member From Class: ClassName=ROV_PCB_3 Member=K3
+Removed Member From Class: ClassName=ROV_PCB_3 Member=L1
+Removed Member From Class: ClassName=ROV_PCB_3 Member=P1
+Removed Member From Class: ClassName=ROV_PCB_3 Member=P3
+Removed Member From Class: ClassName=ROV_PCB_3 Member=P4
+Removed Member From Class: ClassName=ROV_PCB_3 Member=P6
+Removed Member From Class: ClassName=ROV_PCB_3 Member=P7
+Removed Member From Class: ClassName=ROV_PCB_3 Member=P10
+Removed Member From Class: ClassName=ROV_PCB_3 Member=P11
+Removed Member From Class: ClassName=ROV_PCB_3 Member=P12
+Removed Member From Class: ClassName=ROV_PCB_3 Member=Q1
+Removed Member From Class: ClassName=ROV_PCB_3 Member=Q2
+Removed Member From Class: ClassName=ROV_PCB_3 Member=Q3
+Removed Member From Class: ClassName=ROV_PCB_3 Member=Q5
+Removed Member From Class: ClassName=ROV_PCB_3 Member=Q6
+Removed Member From Class: ClassName=ROV_PCB_3 Member=Q7
+Removed Member From Class: ClassName=ROV_PCB_3 Member=R1
+Removed Member From Class: ClassName=ROV_PCB_3 Member=R2
+Removed Member From Class: ClassName=ROV_PCB_3 Member=R3
+Removed Member From Class: ClassName=ROV_PCB_3 Member=R4
+Removed Member From Class: ClassName=ROV_PCB_3 Member=R6
+Removed Member From Class: ClassName=ROV_PCB_3 Member=R7
+Removed Member From Class: ClassName=ROV_PCB_3 Member=R8
+Removed Member From Class: ClassName=ROV_PCB_3 Member=U2
+Change Component DesignItemId : Designator=P2 Old DesignItemId=Header 2 New DesignItemId=Header 5X2
+Change Component DesignItemId : Designator=P5 Old DesignItemId=Header 2 New DesignItemId=Header 5X2
+Change Component Footprint: Designator=P2 Old Footprint=Klema New Footprint=HDR2X5
+Change Component Footprint: Designator=P5 Old Footprint=Klema New Footprint=HDR2X5
+Change Component Comment : Designator=P5 Old Comment=Charger power New Comment=Header PWR
+Change Component Comment : Designator=P2 Old Comment=ESC PWR relay New Comment=Header charge
+Added Pin To Net: NetName=DGND Pin=P2-8
+Added Pin To Net: NetName=DGND Pin=P2-9
+Added Pin To Net: NetName=DGND Pin=P2-10
+Added Pin To Net: NetName=5V Pin=P5-1
+Added Pin To Net: NetName=5V Pin=P5-2
+Added Pin To Net: NetName=5V Pin=P5-3
+Added Pin To Net: NetName=DGND Pin=P5-8
+Added Pin To Net: NetName=DGND Pin=P5-9
+Added Pin To Net: NetName=DGND Pin=P5-10
+Added Pin To Net: NetName=NetP2_3 Pin=P2-3
+Added Pin To Net: NetName=NetP2_3 Pin=U1-22
+Added Net: Name=NetP2_3
+Added Pin To Net: NetName=NetP2_5 Pin=P2-5
+Added Pin To Net: NetName=NetP2_5 Pin=U1-25
+Added Net: Name=NetP2_5
+Added Pin To Net: NetName=NetP2_6 Pin=P2-6
+Added Pin To Net: NetName=NetP2_6 Pin=U1-8
+Added Net: Name=NetP2_6
+Added Pin To Net: NetName=NetP2_7 Pin=P2-7
+Added Pin To Net: NetName=NetP2_7 Pin=U1-26
+Added Net: Name=NetP2_7
+Added Pin To Net: NetName=NetP5_4 Pin=P5-4
+Added Pin To Net: NetName=NetP5_4 Pin=U1-11
+Added Net: Name=NetP5_4
+Added Pin To Net: NetName=NetP5_5 Pin=P5-5
+Added Pin To Net: NetName=NetP5_5 Pin=U1-9
+Added Net: Name=NetP5_5
+Added Pin To Net: NetName=NetP5_7 Pin=P5-7
+Added Pin To Net: NetName=NetP5_7 Pin=U1-10
+Added Net: Name=NetP5_7

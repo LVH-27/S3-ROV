@@ -1,0 +1,20 @@
+Comment;Description;Designator;Footprint;Part number;Quantity;Supplier;Unit price
+;;;;;;;
+100n;Capacitor;C1, C4;RAD-0.1;;2;;
+0.33u;Polarized Capacitor (Radial);C2;ELKO200;C2006;1;Kronos;0.94 kn
+0.1u;Polarized Capacitor (Radial);C3;ELKO200;ELKO100/ 35;1;Elmatis;0.70 kn
+1N4007;1 Amp General Purpose Rectifier;D1, D2;DO-41;;2;;
+Elmatis br.151;Single-Pole Single-Throw Relay;K1;REL151;151;1;Elmatis;24 kn
+100u;Inductor;L1;AXIAL-0.5;BL016;1;Kronos;2.38 kn
+Battery;Header, 2-Pin;P1;Klema;;1;;
+ESC PWR relay;Header, 2-Pin;P2;Klema;;1;;
+ESC PWR SW;Header, 2-Pin;P3;HDR1X2;;1;;
+LOGIC PWR SW;Header, 2-Pin;P4;HDR1X2;;1;;
+Header logic;Header, 5-Pin, Dual row;P5;HDR2X5;;1;;
+SW1 header;Header, 2-Pin;P10;Klema;;1;;
+SW2 header;Header, 2-Pin;P11;Klema;;1;;
+SW3 header;Header, 2-Pin;P12;Klema;;1;;
+PNP 2N3906;PNP Bipolar Transistor;Q1, Q2;MHDR1X3;;2;Kronos;0.50 kn
+TSM2306;TSM2306;Q5, Q6, Q7;SOT-23_M;;3;Elmatis;2.80 kn
+10k;Resistor;R1, R2, R6, R7, R8;AXIAL-0.3;;5;;
+7805;Positive-Voltage Regulator;U2;TO-220-AB;;1;Elmatis;5.00 kn

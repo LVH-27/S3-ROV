@@ -1,0 +1,46 @@
+Removed Pin From Net: NetName=DGND Pin=D3-1
+Removed Pin From Net: NetName=VBATT Pin=K2-1
+Removed Pin From Net: NetName=DGND Pin=K2-4
+Removed Pin From Net: NetName=DGND Pin=K3-6
+Removed Pin From Net: NetName=GND Pin=P5-2
+Removed Pin From Net: NetName=VBATT Pin=P6-1
+Removed Pin From Net: NetName=GND Pin=P6-4
+Removed Pin From Net: NetName=GND Pin=P7-4
+Removed Pin From Net: NetName=5V Pin=P8-1
+Removed Pin From Net: NetName=5V Pin=P8-2
+Removed Pin From Net: NetName=5V Pin=P8-3
+Removed Pin From Net: NetName=VBATT Pin=P8-7
+Removed Pin From Net: NetName=DGND Pin=P8-12
+Removed Pin From Net: NetName=DGND Pin=P8-13
+Removed Pin From Net: NetName=DGND Pin=P8-14
+Removed Pin From Net: NetName=VBATT Pin=Q3-3
+Removed Member From Class: ClassName=ROV_PCB_PWR Member=D3
+Removed Member From Class: ClassName=ROV_PCB_PWR Member=K2
+Removed Member From Class: ClassName=ROV_PCB_PWR Member=K3
+Removed Member From Class: ClassName=ROV_PCB_PWR Member=P6
+Removed Member From Class: ClassName=ROV_PCB_PWR Member=P7
+Removed Member From Class: ClassName=ROV_PCB_PWR Member=P8
+Removed Member From Class: ClassName=ROV_PCB_PWR Member=Q3
+Removed Member From Class: ClassName=ROV_PCB_PWR Member=R3
+Removed Member From Class: ClassName=ROV_PCB_PWR Member=R4
+Change Component DesignItemId : Designator=P5 Old DesignItemId=Header 2 New DesignItemId=Header 5X2
+Change Component Footprint: Designator=P5 Old Footprint=Klema New Footprint=HDR2X5
+Change Component Comment : Designator=P5 Old Comment=Charger power New Comment=Header 5X2
+Added Pin To Net: NetName=5V Pin=P5-1
+Added Pin To Net: NetName=5V Pin=P5-2
+Added Pin To Net: NetName=5V Pin=P5-3
+Added Pin To Net: NetName=DGND Pin=P5-8
+Added Pin To Net: NetName=DGND Pin=P5-9
+Added Pin To Net: NetName=DGND Pin=P5-10
+Added Pin To Net: NetName=NetP5_4 Pin=P5-4
+Added Pin To Net: NetName=NetP5_4 Pin=Q7-1
+Added Pin To Net: NetName=NetP5_4 Pin=R8-2
+Added Net: Name=NetP5_4
+Added Pin To Net: NetName=NetP5_5 Pin=P5-5
+Added Pin To Net: NetName=NetP5_5 Pin=Q5-1
+Added Pin To Net: NetName=NetP5_5 Pin=R6-2
+Added Net: Name=NetP5_5
+Added Pin To Net: NetName=NetP5_7 Pin=P5-7
+Added Pin To Net: NetName=NetP5_7 Pin=Q6-1
+Added Pin To Net: NetName=NetP5_7 Pin=R7-2
+Added Net: Name=NetP5_7

@@ -1,0 +1,86 @@
+Protel Design System Design Rule Check
+PCB File : D:\Workspace\ROV_PCB_3\ROV_PCB_3.PcbDoc
+Date     : 21.7.2017.
+Time     : 16:11:43
+
+Processing Rule : Room ROV_PCB_3 (Bounding Region = (4520mil, 710mil, 8180mil, 2335mil) (InComponentClass('ROV_PCB_3'))
+   Violation between Room Definition: Between Small Component U5-LM35 (-390mil,-755mil) on Top Layer And Room ROV_PCB_3 (Bounding Region = (4520mil, 710mil, 8180mil, 2335mil) (InComponentClass('ROV_PCB_3')) 
+   Violation between Room Definition: Between Small Component U4-LM35 (-230mil,-755mil) on Top Layer And Room ROV_PCB_3 (Bounding Region = (4520mil, 710mil, 8180mil, 2335mil) (InComponentClass('ROV_PCB_3')) 
+   Violation between Room Definition: Between Small Component U3-LM35 (-80mil,-755mil) on Top Layer And Room ROV_PCB_3 (Bounding Region = (4520mil, 710mil, 8180mil, 2335mil) (InComponentClass('ROV_PCB_3')) 
+   Violation between Room Definition: Between DIP Component U1-Arduino_Nano (840mil,305mil) on Top Layer And Room ROV_PCB_3 (Bounding Region = (4520mil, 710mil, 8180mil, 2335mil) (InComponentClass('ROV_PCB_3')) 
+   Violation between Room Definition: Between Small Component R5-10k (-760mil,890mil) on Top Layer And Room ROV_PCB_3 (Bounding Region = (4520mil, 710mil, 8180mil, 2335mil) (InComponentClass('ROV_PCB_3')) 
+   Violation between Room Definition: Between SMT Small Component Q4-Si2307BDS (-1101.26mil,500mil) on Bottom Layer And Room ROV_PCB_3 (Bounding Region = (4520mil, 710mil, 8180mil, 2335mil) (InComponentClass('ROV_PCB_3')) 
+   Violation between Room Definition: Between Small Component P15-ESC_C header (-340mil,710mil) on Top Layer And Room ROV_PCB_3 (Bounding Region = (4520mil, 710mil, 8180mil, 2335mil) (InComponentClass('ROV_PCB_3')) 
+   Violation between Room Definition: Between Small Component P14-ESC_R header (10mil,710mil) on Top Layer And Room ROV_PCB_3 (Bounding Region = (4520mil, 710mil, 8180mil, 2335mil) (InComponentClass('ROV_PCB_3')) 
+   Violation between Room Definition: Between Small Component P13-ESC_L header (355mil,710mil) on Top Layer And Room ROV_PCB_3 (Bounding Region = (4520mil, 710mil, 8180mil, 2335mil) (InComponentClass('ROV_PCB_3')) 
+   Violation between Room Definition: Between SIP Component P9-Serial (545mil,800mil) on Top Layer And Room ROV_PCB_3 (Bounding Region = (4520mil, 710mil, 8180mil, 2335mil) (InComponentClass('ROV_PCB_3')) 
+   Violation between Room Definition: Between SIP Component P8-I2C (-1220mil,85mil) on Top Layer And Room ROV_PCB_3 (Bounding Region = (4520mil, 710mil, 8180mil, 2335mil) (InComponentClass('ROV_PCB_3')) 
+   Violation between Room Definition: Between DIP Component P5-Header PWR (1100mil,-250mil) on Top Layer And Room ROV_PCB_3 (Bounding Region = (4520mil, 710mil, 8180mil, 2335mil) (InComponentClass('ROV_PCB_3')) 
+   Violation between Room Definition: Between DIP Component P2-Header charge (-750mil,-250mil) on Top Layer And Room ROV_PCB_3 (Bounding Region = (4520mil, 710mil, 8180mil, 2335mil) (InComponentClass('ROV_PCB_3')) 
+   Violation between Room Definition: Between Small Component C5-1u (525mil,-570mil) on Top Layer And Room ROV_PCB_3 (Bounding Region = (4520mil, 710mil, 8180mil, 2335mil) (InComponentClass('ROV_PCB_3')) 
+Rule Violations :14
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+   Violation between Un-Routed Net Constraint: Net NetP2_6 Between Track (-895mil,-50mil)(-850mil,-50mil) on Bottom Layer And Pad U1-8(140mil,305mil) on Multi-Layer 
+   Violation between Un-Routed Net Constraint: Net DGND Between Pad P5-5(1100mil,-50mil) on Multi-Layer And Track (1100mil,50mil)(1100mil,150mil) on Bottom Layer 
+Rule Violations :2
+
+Processing Rule : Clearance Constraint (Gap=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=10mil) (Max=80mil) (Preferred=40mil) (All)
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=1mil) (Max=100mil) (All)
+   Violation between Hole Size Constraint: (157.48mil > 100mil) Pad Free-0(-790mil,590mil) on Multi-Layer Actual Hole Size = 157.48mil
+   Violation between Hole Size Constraint: (157.48mil > 100mil) Pad Free-0(790mil,590mil) on Multi-Layer Actual Hole Size = 157.48mil
+   Violation between Hole Size Constraint: (157.48mil > 100mil) Pad Free-0(-775.263mil,-600mil) on Multi-Layer Actual Hole Size = 157.48mil
+   Violation between Hole Size Constraint: (157.48mil > 100mil) Pad Free-0(790mil,-590mil) on Multi-Layer Actual Hole Size = 157.48mil
+Rule Violations :4
+
+Processing Rule : Hole To Hole Clearance (Gap=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Silk To Solder Mask (Clearance=10mil) (IsPad),(All)
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 10mil) Between Text "P9" (530mil,305mil) on Top Overlay And Pad U1-5(440mil,305mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 10mil) Between Text "P9" (530mil,305mil) on Top Overlay And Pad U1-4(540mil,305mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 10mil) Between Track (240mil,510mil)(300mil,450mil) on Top Overlay And Pad Free-7(300mil,450mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 10mil) Between Track (-965mil,-220mil)(-965mil,325mil) on Top Overlay And Pad Free-6(-965mil,-220mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (4.893mil < 10mil) Between Track (-780mil,510mil)(240mil,510mil) on Top Overlay And Pad Free-2(-655mil,440mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [4.893mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (9.419mil < 10mil) Between Track (-660mil,890mil)(-651mil,890mil) on Top Overlay And Pad R5-2(-610mil,890mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [9.419mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (9.419mil < 10mil) Between Track (-869mil,890mil)(-860mil,890mil) on Top Overlay And Pad R5-1(-910mil,890mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [9.419mil]
+Rule Violations :7
+
+Processing Rule : Silk to Silk (Clearance=10mil) (All),(All)
+   Violation between Silk To Silk Clearance Constraint: (5.072mil < 10mil) Between Text "1" (-730mil,-330mil) on Top Overlay And Track (-900mil,-300mil)(-700mil,-300mil) on Top Overlay Silk Text to Silk Clearance [5.072mil]
+   Violation between Silk To Silk Clearance Constraint: (8.411mil < 10mil) Between Text "2" (-830mil,-350mil) on Top Overlay And Track (-900mil,-300mil)(-700mil,-300mil) on Top Overlay Silk Text to Silk Clearance [8.411mil]
+   Violation between Silk To Silk Clearance Constraint: (1.733mil < 10mil) Between Text "10" (-830mil,210mil) on Top Overlay And Track (-900mil,200mil)(-700mil,200mil) on Top Overlay Silk Text to Silk Clearance [1.733mil]
+   Violation between Silk To Silk Clearance Constraint: (1.733mil < 10mil) Between Text "9" (-730mil,210mil) on Top Overlay And Track (-900mil,200mil)(-700mil,200mil) on Top Overlay Silk Text to Silk Clearance [1.733mil]
+   Violation between Silk To Silk Clearance Constraint: (5.072mil < 10mil) Between Text "1" (1120mil,-330mil) on Top Overlay And Track (950mil,-300mil)(1150mil,-300mil) on Top Overlay Silk Text to Silk Clearance [5.072mil]
+   Violation between Silk To Silk Clearance Constraint: (8.411mil < 10mil) Between Text "2" (1020mil,-350mil) on Top Overlay And Track (950mil,-300mil)(1150mil,-300mil) on Top Overlay Silk Text to Silk Clearance [8.411mil]
+   Violation between Silk To Silk Clearance Constraint: (1.733mil < 10mil) Between Text "9" (1120mil,210mil) on Top Overlay And Track (950mil,200mil)(1150mil,200mil) on Top Overlay Silk Text to Silk Clearance [1.733mil]
+   Violation between Silk To Silk Clearance Constraint: (1.733mil < 10mil) Between Text "10" (1020mil,210mil) on Top Overlay And Track (950mil,200mil)(1150mil,200mil) on Top Overlay Silk Text to Silk Clearance [1.733mil]
+   Violation between Silk To Silk Clearance Constraint: (0.228mil < 10mil) Between Text "P15" (-584mil,794mil) on Top Overlay And Text "R5" (-565mil,965mil) on Top Overlay Silk Text to Silk Clearance [0.228mil]
+Rule Violations :9
+
+Processing Rule : Net Antennae (Tolerance=0mil) (All)
+Rule Violations :0
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+
+Violations Detected : 36
+Time Elapsed        : 00:00:01

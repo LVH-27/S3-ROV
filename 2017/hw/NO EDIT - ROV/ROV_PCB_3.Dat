@@ -1,0 +1,13 @@
+﻿Field=#~Integer~#~50|Field=Comment~String~Comment~94|Field=Description~String~Description~141|Field=Designator~String~Designator~86|Field=Footprint~String~Footprint~86|Field=Part number~String~Part number~86|Field=Quantity~Integer~Quantity~77|Field=Supplier~String~Supplier~91|Field=Unit price~String~Unit price~89|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~ROV_PCB_3.PrjPcb|ReportField=ProjectFullPath~D:\Workspace\ROV_PCB_3\ROV_PCB_3.PrjPcb|ReportField=Title~Bill of Materials For Project [ROV_PCB_3.PrjPcb] (No PCB Document Selected)|ReportField=TotalQuantity~14|ReportField=ReportTime~14:45:08|ReportField=ReportDate~20.7.2017.|ReportField=ReportDateTime~20.7.2017. 14:45:08|ReportField=OutputName~Bill of Materials|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=Address1~|ReportField=Address2~|ReportField=Address3~|ReportField=Address4~|ReportField=Application_BuildNumber~|ReportField=ApprovedBy~|ReportField=Author~|ReportField=CheckedBy~|ReportField=CompanyName~|ReportField=CurrentDate~20.7.2017.|ReportField=CurrentTime~11:15:09|ReportField=Date~|ReportField=DocumentFullPathAndName~D:\Workspace\ROV_PCB_3\ROV_PCB_3.SchDoc|ReportField=DocumentName~ROV_PCB_3.SchDoc|ReportField=DocumentNumber~|ReportField=DrawnBy~|ReportField=Engineer~|ReportField=ImagePath~|ReportField=ModifiedDate~20.7.2017.|ReportField=Organization~|ReportField=PageSetup~Record=PageOptions:CenterHorizontal=True:CenterVertical=True:PrintScale=0.96:XCorrection=1.00:YCorrection=1.00:PrintKind=1:BorderSize=5000000:LeftOffset=0:BottomOffset=0:Orientation=2:PaperLength=1000:PaperWidth=1000:Scale=100:PaperSource=257:PrintQuality=600:MediaType=1:DitherType=10:PrintScaleMode=1:PaperKind=A4:PaperIndex=9|ReportField=ProjectName~ROV_PCB_3.PrjPcb|ReportField=Revision~|ReportField=Rule~|ReportField=SheetNumber~|ReportField=SheetTotal~|ReportField=Time~|ReportField=Title~|ReportField=DataSourceFileName~ROV_PCB_3.PrjPcb|ReportField=DataSourceFullPath~D:\Workspace\ROV_PCB_3\ROV_PCB_3.PrjPcb
+1|1u|Capacitor|C5|RAD-0.1|C2190|1|Kronos|0.74 kn
+2|Header charge|Header, 5-Pin, Dual row|P2|HDR2X5||1||
+3|Header PWR|Header, 5-Pin, Dual row|P5|HDR2X5||1||
+4|I2C|Header, 4-Pin|P8|HDR1X4||1||
+5|Serial|Header, 4-Pin|P9|HDR1X4||1||
+6|ESC_L header|Header, 3-Pin|P13|HDR1X3||1||
+7|ESC_R header|Header, 3-Pin|P14|HDR1X3||1||
+8|ESC_C header|Header, 3-Pin|P15|HDR1X3||1||
+9|Si2307BDS|P-Channel MOSFET|Q4|SOT23_M||1|Elmatis|4.00 kn
+10|10k|Resistor|R5|AXIAL-0.3||1||
+11|Arduino_Nano||U1|DIP30||1||
+12|LM35||U3, U4, U5|HDR1X3||3||

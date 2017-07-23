@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=NetD2_2 Pin=Q2-1
+Removed Pin From Net: NetName=VBATT Pin=Q2-3
+Change Component Footprint: Designator=Q2 Old Footprint=SOT-23B_N New Footprint=TO-92
+Added Pin To Net: NetName=VBATT Pin=Q2-1
+Added Pin To Net: NetName=NetD2_2 Pin=Q2-3
