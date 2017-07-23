@@ -24,3 +24,12 @@ Senzorski Arduino:
 #######
 
 probat Serial na 115200
+
+By loki:
+
+    - ovaj arduino library napisat objektno (dakle struktura + metode)
+    - error handling napravit ljepse (dinamicki polim., ne preko serije)
+    - dodat mogucnost komunikacije preko software seriala
+    - promijenit da se struktura poruke moze ez mijenjati, i sukladno tome racunati checksuma
+    - potrebo provjeriti funkcionira li to govno kak spada u nekim ne-idealnim uvijetima
+    
