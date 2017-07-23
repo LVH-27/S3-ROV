@@ -1,0 +1,329 @@
+[0x9b58f0] main libvlc debug: VLC media player - 2.0.3 Twoflower
+[0x9b58f0] main libvlc debug: Copyright © 1996-2012 VLC authors and VideoLAN
+[0x9b58f0] main libvlc debug: revision 2.0.2-93-g77aa89e
+[0x9b58f0] main libvlc debug: configured with ./configure  '--enable-static' '--build=arm-linux-gnueabihf' 'CFLAGS=-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security' 'CPPFLAGS=-D_FORTIFY_SOURCE=2' 'CXXFLAGS=-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security' 'LDFLAGS=-Wl,-z,relro' '--config-cache' '--disable-maintainer-mode' '--disable-silent-rules' '--disable-update-check' '--enable-fast-install' '--prefix=/usr' '--docdir=/usr/share/doc/vlc-nox' '--sysconfdir=/etc' '--with-binary-version=5' '--enable-a52' '--enable-aa' '--enable-bluray' '--enable-bonjour' '--enable-caca' '--enable-dbus' '--enable-dca' '--enable-dirac' '--enable-directfb' '--enable-dvbpsi' '--enable-dvdnav' '--enable-faad' '--enable-flac' '--enable-fluidsynth' '--enable-freetype' '--enable-fribidi' '--enable-gnutls' '--enable-jack' '--enable-kate' '--enable-libass' '--enable-libmpeg2' '--enable-libproxy' '--enable-libxml2' '--enable-lirc' '--enable-live555' '--enable-mad' '--enable-mkv' '--enable-mod' '--enable-mpc' '--enable-mtp' '--enable-mux_ogg' '--enable-ncurses' '--enable-notify' '--enable-ogg' '--enable-oss' '--enable-pulse' '--enable-qt4' '--enable-realrtsp' '--enable-samplerate' '--enable-schroedinger' '--enable-sdl' '--enable-shout' '--enable-skins2' '--enable-smb' '--enable-speex' '--enable-svg' '--enable-taglib' '--enable-theora' '--enable-twolame' '--enable-upnp' '--enable-vcd' '--enable-vcdx' '--enable-vorbis' '--enable-x264' '--enable-zvbi' '--with-kde-solid=/usr/share/kde4/apps/solid/actions/' '--disable-dxva2' '--disable-gnomevfs' '--disable-goom' '--disable-portaudio' '--disable-projectm' '--disable-sqlite' '--disable-telx' '--enable-alsa' '--enable-atmo' '--enable-dc1394' '--enable-dv' '--enable-fbosd' '--enable-libva' '--enable-linsys' '--enable-omxil' '--enable-pvr' '--enable-udev' '--enable-v4l2' '--disable-crystalhd' '--disable-mmx' '--disable-sse' '--disable-neon' '--disable-altivec' 'build_alias=arm-linux-gnueabihf'
+[0x9b58f0] main libvlc debug: searching plug-in modules
+[0x9b58f0] main libvlc debug: loading plugins cache file /usr/lib/vlc/plugins/plugins.dat
+[0x9b58f0] main libvlc debug: recursively browsing `/usr/lib/vlc/plugins'
+[0x9b58f0] main libvlc debug: saving plugins cache /usr/lib/vlc/plugins/plugins.dat
+[0x9b58f0] main libvlc debug: plug-ins loaded: 410 modules
+[0x9b58f0] main libvlc debug: opening config file (/home/pi/.config/vlc/vlcrc)
+[0x9b58f0] main libvlc debug: translation test: code is "en_GB"
+[0x9b58f0] main libvlc debug: CPU has capabilities FPU 
+[0x9b58f0] main libvlc debug: looking for memcpy module: 1 candidate
+[0x9b58f0] main libvlc debug: using memcpy module "memcpy"
+[0x9d57a8] main input debug: Creating an input for 'Media Library'
+[0x9d57a8] main input debug: Input is a meta file: disabling unneeded options
+[0x9d57a8] main input debug: using timeshift granularity of 50 MiB, in path '/tmp'
+[0x9d57a8] main input debug: `file/xspf-open:///home/pi/.local/share/vlc/ml.xspf' gives access `file' demux `xspf-open' path `/home/pi/.local/share/vlc/ml.xspf'
+[0x9d57a8] main input debug: creating demux: access='file' demux='xspf-open' location='/home/pi/.local/share/vlc/ml.xspf' file='/home/pi/.local/share/vlc/ml.xspf'
+[0xb236d8] main demux debug: looking for access_demux module: 3 candidates
+[0xb236d8] main demux debug: no access_demux module matching "file" could be loaded
+[0xb236d8] main demux debug: TIMER module_need() : 20.232 ms - Total 20.232 ms / 1 intvls (Avg 20.232 ms)
+[0x9d57a8] main input debug: creating access 'file' location='/home/pi/.local/share/vlc/ml.xspf', path='/home/pi/.local/share/vlc/ml.xspf'
+[0x9c5308] main access debug: looking for access module: 2 candidates
+[0x9c5308] filesystem access debug: opening file `/home/pi/.local/share/vlc/ml.xspf'
+[0x9c5308] main access debug: using access module "filesystem"
+[0x9c5308] main access debug: TIMER module_need() : 5.088 ms - Total 5.088 ms / 1 intvls (Avg 5.088 ms)
+[0x9c6e48] main stream debug: Using stream method for AStream*
+[0x9c6e48] main stream debug: starting pre-buffering
+[0x9c6e48] main stream debug: received first data after 0 ms
+[0x9c6e48] main stream debug: pre-buffering done 296 bytes in 0s - 847 KiB/s
+[0x9c6d18] main stream debug: looking for stream_filter module: 7 candidates
+[0x9c6d18] main stream debug: no stream_filter module matching "any" could be loaded
+[0x9c6d18] main stream debug: TIMER module_need() : 10.742 ms - Total 10.742 ms / 1 intvls (Avg 10.742 ms)
+[0x9c6d18] main stream debug: looking for stream_filter module: 1 candidate
+[0x9c6d18] main stream debug: using stream_filter module "stream_filter_record"
+[0x9c6d18] main stream debug: TIMER module_need() : 2.637 ms - Total 2.637 ms / 1 intvls (Avg 2.637 ms)
+[0x9d57a8] main input debug: creating demux: access='file' demux='xspf-open' location='/home/pi/.local/share/vlc/ml.xspf' file='/home/pi/.local/share/vlc/ml.xspf'
+[0x9c53f0] main demux debug: looking for demux module: 1 candidate
+[0x9c53f0] playlist demux debug: using XSPF playlist reader
+[0x9c53f0] main demux debug: using demux module "playlist"
+[0x9c53f0] main demux debug: TIMER module_need() : 3.716 ms - Total 3.716 ms / 1 intvls (Avg 3.716 ms)
+[0x9c9610] main demux meta debug: looking for meta reader module: 2 candidates
+[0x9c9610] lua demux meta debug: Trying Lua scripts in /home/pi/.local/share/vlc/lua/meta/reader
+[0x9c9610] lua demux meta debug: Trying Lua scripts in /usr/lib/vlc/lua/meta/reader
+[0x9c9610] lua demux meta debug: Trying Lua playlist script /usr/lib/vlc/lua/meta/reader/filename.luac
+[0x9c9610] lua demux meta debug: Trying Lua scripts in /usr/share/vlc/lua/meta/reader
+[0x9c9610] main demux meta debug: no meta reader module matching "any" could be loaded
+[0x9c9610] main demux meta debug: TIMER module_need() : 37.204 ms - Total 37.204 ms / 1 intvls (Avg 37.204 ms)
+[0x9d57a8] main input debug: `file/xspf-open:///home/pi/.local/share/vlc/ml.xspf' successfully opened
+[0xb1e4c8] main xml reader debug: looking for xml reader module: 1 candidate
+[0xb1e4c8] main xml reader debug: using xml reader module "xml"
+[0xb1e4c8] main xml reader debug: TIMER module_need() : 10.344 ms - Total 10.344 ms / 1 intvls (Avg 10.344 ms)
+[0x9c53f0] playlist demux debug: parsed 0 tracks successfully
+[0x9d57a8] main input debug: EOF reached
+[0x9c53f0] main demux debug: removing module "playlist"
+[0x9c6d18] main stream debug: removing module "stream_filter_record"
+[0x9c5308] main access debug: removing module "filesystem"
+[0x9d57a8] main input debug: TIMER input launching for 'Media Library' : 89.180 ms - Total 89.180 ms / 1 intvls (Avg 89.180 ms)
+[0x9c6e48] main interface debug: looking for interface module: 1 candidate
+[0x9c6e48] main interface debug: using interface module "hotkeys"
+[0x9c6e48] main interface debug: TIMER module_need() : 3.082 ms - Total 3.082 ms / 1 intvls (Avg 3.082 ms)
+[0x9d57a8] main interface debug: looking for interface module: 1 candidate
+[0x9d57a8] inhibit interface error: Failed to connect to the D-Bus session daemon: Unable to autolaunch a dbus-daemon without a $DISPLAY for X11
+[0x9d57a8] main interface debug: no interface module matching "inhibit,none" could be loaded
+[0x9d57a8] main interface debug: TIMER module_need() : 3.949 ms - Total 3.949 ms / 1 intvls (Avg 3.949 ms)
+[0x9d57a8] main interface error: no suitable interface module
+[0xb2cd38] main playlist debug: playlist threads correctly activated
+[0xb2cd38] main playlist debug: adding item `v4l2:///dev/video0' ( v4l2:///dev/video0 )
+[0x9d6428] main interface debug: looking for interface module: 1 candidate
+[0x9d6428] main interface debug: no interface module matching "globalhotkeys,none" could be loaded
+[0x9d6428] main interface debug: TIMER module_need() : 12.783 ms - Total 12.783 ms / 1 intvls (Avg 12.783 ms)
+[0x9d6428] main interface error: no suitable interface module
+[0xb2cd38] main playlist debug: rebuilding array of current - root Playlist
+[0xb2cd38] main playlist debug: rebuild done - 1 items, index -1
+[0xb2cd38] main playlist debug: meta ok for (null), need to fetch art
+[0x9b58f0] main libvlc error: interface "globalhotkeys,none" initialization failed
+[0x9b58f0] main libvlc: Running vlc with the default interface. Use 'cvlc' to use vlc without interface.
+[0x9d6428] main interface debug: looking for interface module: 6 candidates
+[0x9d6428] qt4 interface error: Could not connect to X server
+[0x9d66b8] main demux meta debug: looking for meta fetcher module: 1 candidate
+[0x9d66b8] lua demux meta debug: Trying Lua scripts in /home/pi/.local/share/vlc/lua/meta/fetcher
+[0x9d66b8] lua demux meta debug: Trying Lua scripts in /usr/lib/vlc/lua/meta/fetcher
+[0x9d66b8] lua demux meta debug: Trying Lua playlist script /usr/lib/vlc/lua/meta/fetcher/tvrage.luac
+[0x9d66b8] main demux meta debug: using meta fetcher module "lua"
+[0x9d66b8] main demux meta debug: TIMER module_need() : 6.904 ms - Total 6.904 ms / 1 intvls (Avg 6.904 ms)
+[0x9d66b8] main demux meta debug: removing module "lua"
+[0xb2cd38] main playlist debug: searching art for v4l2:///dev/video0
+[0xb1e350] main art finder debug: looking for art finder module: 2 candidates
+[0xb1e350] lua art finder debug: Trying Lua scripts in /home/pi/.local/share/vlc/lua/meta/art
+[0xb1e350] lua art finder debug: Trying Lua scripts in /usr/lib/vlc/lua/meta/art
+[0xb1e350] lua art finder debug: Trying Lua playlist script /usr/lib/vlc/lua/meta/art/00_musicbrainz.luac
+[0xb1e350] lua art finder debug: Trying Lua playlist script /usr/lib/vlc/lua/meta/art/01_googleimage.luac
+[0x9d6428] skins2 interface debug: Cannot open X display
+[0x9d6428] skins2 interface error: cannot initialize OSFactory
+[0x9d6428] [cli] lua interface debug: Found lua interface script: /usr/lib/vlc/lua/intf/cli.luac
+[0x9d6428] [cli] main interface debug: using interface module "lua"
+[0x9d6428] [cli] main interface debug: TIMER module_need() : 43.969 ms - Total 43.969 ms / 1 intvls (Avg 43.969 ms)
+[0xb2cd38] main playlist debug: processing request item: null, node: Playlist, skip: 0
+[0xb2cd38] main playlist debug: starting playback of the new playlist item
+[0xb2cd38] main playlist debug: resyncing on v4l2:///dev/video0
+[0xb2cd38] main playlist debug: v4l2:///dev/video0 is at 0
+[0xb2cd38] main playlist debug: creating new input thread
+[0x9ddda8] main input debug: Creating an input for 'v4l2:///dev/video0'
+[0x9e1a50] main stream output debug: using sout chain=`rtp{dst=224.0.0.100,port=5000,sdp=rtsp://10.1.2.135:8000/stream.sdp}'
+[0x9e1a50] main stream output debug: stream=`rtp'
+[0x9e1cd0] main stream out debug: looking for sout stream module: 1 candidate
+[0xb1e350] lua art finder debug: Trying Lua playlist script /usr/lib/vlc/lua/meta/art/02_frenchtv.luac
+[0xb1e350] lua art finder debug: Trying Lua playlist script /usr/lib/vlc/lua/meta/art/03_lastfm.luac
+[0x9e1cd0] main stream out debug: set config option: sout-rtp-dst to 224.0.0.100
+[0x9e1cd0] main stream out debug: set config option: sout-rtp-port to 5000
+[0x9e1cd0] main stream out debug: set config option: sout-rtp-sdp to rtsp://10.1.2.135:8000/stream.sdp
+[0x9e1cd0] stream_out_rtp stream out warning: "10.1.2.135" RTSP host might be ignored in multiple-host configurations, use at your own risks.
+[0x9e1cd0] stream_out_rtp stream out: Consider passing --rtsp-host=IP on the command line instead.
+[0x9e1cd0] stream_out_rtp stream out debug: RTSP stream at /stream.sdp
+[0x9e1cd0] main stream out debug: net: listening to 10.1.2.135 port 8000
+[0x9e1cd0] main stream out debug: using sout stream module "stream_out_rtp"
+[0x9e1cd0] main stream out debug: TIMER module_need() : 19.568 ms - Total 19.568 ms / 1 intvls (Avg 19.568 ms)
+[0x9ddda8] main input debug: using timeshift granularity of 50 MiB, in path '/tmp'
+[0xb1e350] lua art finder debug: Trying Lua scripts in /usr/share/vlc/lua/meta/art
+[0xb1e350] main art finder debug: no art finder module matching "any" could be loaded
+[0xb1e350] main art finder debug: TIMER module_need() : 83.295 ms - Total 83.295 ms / 1 intvls (Avg 83.295 ms)
+[0xb2cd38] main playlist debug: art not found for v4l2:///dev/video0
+[0x9ddda8] main input debug: `v4l2:///dev/video0' gives access `v4l2' demux `' path `/dev/video0'
+[0x9ddda8] main input debug: creating demux: access='v4l2' demux='' location='/dev/video0' file='/dev/video0'
+[0xb27be8] main demux debug: looking for access_demux module: 1 candidate
+[0x9d6428] [cli] lua interface: Listening on host "*console".
+[0xb27be8] v4l2 demux debug: opening device '/dev/video0'
+[0xb27be8] v4l2 demux debug: trying kernel V4L2
+[0xb27be8] v4l2 demux debug: device SPC315NC        using driver gspca_zc3xx (version 3.12.22) on usb-bcm2708_usb-1.3
+[0xb27be8] v4l2 demux debug: the device has the capabilities: 0x85000001
+[0xb27be8] v4l2 demux debug:  (X) Video Capture, ( ) Audio, ( ) Tuner, ( ) Radio
+[0xb27be8] v4l2 demux debug:  (X) Read/Write, (X) Streaming, ( ) Asynchronous
+[0xb27be8] v4l2 demux debug: video input 0 (gspca_zc3xx) has type: External analog input *
+[0xb27be8] v4l2 demux debug: input set to 0
+[0xb27be8] v4l2 demux debug: device supports chroma jpeg [JPEG, JPEG]
+[0xb27be8] v4l2 demux debug: control class User Controls:
+[0xb27be8] v4l2 demux debug:  integer  Brightness (00980900)
+[0xb27be8] v4l2 demux debug:   current: 128, default: 128
+[0xb27be8] v4l2 demux debug:  integer  Contrast (00980901)
+[0xb27be8] v4l2 demux debug:   current: 128, default: 128
+[0xb27be8] v4l2 demux debug:  integer  Gamma (00980910)
+[0xb27be8] v4l2 demux debug:   current:   4, default:   4
+[0xb27be8] v4l2 demux debug:  boolean  Gain, Automatic (00980912)
+[0xb27be8] v4l2 demux debug:   current:  true, default:  true
+[0xb27be8] v4l2 demux debug:  menu     Power Line Frequency (00980918)
+[0xb27be8] v4l2 demux debug:   current: 0, default: 0
+[0xb27be8] v4l2 demux debug:   choice 0) Disabled
+[0xb27be8] v4l2 demux debug:   choice 1) 50 Hz
+[0xb27be8] v4l2 demux debug:   choice 2) 60 Hz
+[0xb27be8] v4l2 demux debug:  integer  Sharpness (0098091B)
+[0xb27be8] v4l2 demux debug:   current:   2, default:   2
+[0xb27be8] v4l2 demux debug: control class JPEG Compression Controls:
+[0xb27be8] v4l2 demux debug:  integer  Compression Quality (009D0903)
+[0xb27be8] v4l2 demux debug:   current:  75, default:  75
+[0xb27be8] v4l2 demux debug: found default width and height of 176x144
+[0xb27be8] v4l2 demux debug: will try to find optimal width and height
+[0xb27be8] v4l2 demux debug: Found maximum framerate of -1.000000
+[0xb27be8] v4l2 demux debug:  discrete size 176x144 supported
+[0xb27be8] v4l2 demux debug:  discrete size 352x288 supported
+[0xb27be8] v4l2 demux debug: Found optimal dimensions for framerate -1.000000 of 352x288
+[0xb27be8] v4l2 demux error: Cannot set size to optimal dimensions 352x288
+[0xb27be8] v4l2 demux debug: trying library V4L2
+[0xb27be8] v4l2 demux debug: device SPC315NC        using driver gspca_zc3xx (version 3.12.22) on usb-bcm2708_usb-1.3
+[0xb27be8] v4l2 demux debug: the device has the capabilities: 0x85000001
+[0xb27be8] v4l2 demux debug:  (X) Video Capture, ( ) Audio, ( ) Tuner, ( ) Radio
+[0xb27be8] v4l2 demux debug:  (X) Read/Write, (X) Streaming, ( ) Asynchronous
+[0xb27be8] v4l2 demux debug: video input 0 (gspca_zc3xx) has type: External analog input *
+[0xb27be8] v4l2 demux debug: input set to 0
+[0xb27be8] v4l2 demux debug: device supports chroma RV24 [RGB3, RGB3]
+[0xb27be8] v4l2 demux debug: device supports chroma RV24 [BGR3, BGR3]
+[0xb27be8] v4l2 demux debug: device supports chroma I420 [YU12, YU12]
+[0xb27be8] v4l2 demux debug: device supports chroma YV12 [YV12, YV12]
+[0xb27be8] v4l2 demux debug: control class User Controls:
+[0xb27be8] v4l2 demux debug:  integer  Brightness (00980900)
+[0xb27be8] v4l2 demux debug:   current: 128, default: 128
+[0xb27be8] v4l2 demux debug:  integer  Contrast (00980901)
+[0xb27be8] v4l2 demux debug:   current: 128, default: 128
+[0xb27be8] v4l2 demux debug:  boolean  Whitebalance (software) (0098090C)
+[0xb27be8] v4l2 demux debug:   current: false, default: false
+[0xb27be8] v4l2 demux debug:  integer  Gamma (00980910)
+[0xb27be8] v4l2 demux debug:   current:   4, default:   4
+[0xb27be8] v4l2 demux debug:  boolean  Gain, Automatic (00980912)
+[0xb27be8] v4l2 demux debug:   current:  true, default:  true
+[0xb27be8] v4l2 demux debug:  boolean  Horizontal flip (sw) (00980914)
+[0xb27be8] v4l2 demux debug:   current: false, default: false
+[0xb27be8] v4l2 demux debug:  boolean  Vertical flip (sw) (00980915)
+[0xb27be8] v4l2 demux debug:   current: false, default: false
+[0xb27be8] v4l2 demux debug:  menu     Power Line Frequency (00980918)
+[0xb27be8] v4l2 demux debug:   current: 0, default: 0
+[0xb27be8] v4l2 demux debug:   choice 0) Disabled
+[0xb27be8] v4l2 demux debug:   choice 1) 50 Hz
+[0xb27be8] v4l2 demux debug:   choice 2) 60 Hz
+[0xb27be8] v4l2 demux debug:  integer  Sharpness (0098091B)
+[0xb27be8] v4l2 demux debug:   current:   2, default:   2
+[0xb27be8] v4l2 demux debug: control class JPEG Compression Controls:
+[0xb27be8] v4l2 demux debug:  integer  Compression Quality (009D0903)
+[0xb27be8] v4l2 demux debug:   current:  75, default:  75
+[0xb27be8] v4l2 demux debug: found default width and height of 176x144
+[0xb27be8] v4l2 demux debug: will try to find optimal width and height
+[0xb27be8] v4l2 demux debug: Found maximum framerate of -1.000000
+[0xb27be8] v4l2 demux debug:  discrete size 176x144 supported
+[0xb27be8] v4l2 demux debug:  discrete size 352x288 supported
+[0xb27be8] v4l2 demux debug: Found optimal dimensions for framerate -1.000000 of 352x288
+libv4l2: error setting pixformat: Invalid argument
+[0xb27be8] v4l2 demux error: Cannot set size to optimal dimensions 352x288
+[0xb27be8] main demux debug: no access_demux module matching "v4l2" could be loaded
+[0xb27be8] main demux debug: TIMER module_need() : 51.797 ms - Total 51.797 ms / 1 intvls (Avg 51.797 ms)
+[0x9ddda8] main input debug: creating access 'v4l2' location='/dev/video0', path='/dev/video0'
+[0x9eef88] main access debug: looking for access module: 1 candidate
+[0x9eef88] v4l2 access debug: opening device '/dev/video0'
+[0x9eef88] v4l2 access debug: trying kernel V4L2
+[0x9eef88] v4l2 access debug: device SPC315NC        using driver gspca_zc3xx (version 3.12.22) on usb-bcm2708_usb-1.3
+[0x9eef88] v4l2 access debug: the device has the capabilities: 0x85000001
+[0x9eef88] v4l2 access debug:  (X) Video Capture, ( ) Audio, ( ) Tuner, ( ) Radio
+[0x9eef88] v4l2 access debug:  (X) Read/Write, (X) Streaming, ( ) Asynchronous
+[0x9eef88] v4l2 access debug: video input 0 (gspca_zc3xx) has type: External analog input *
+[0x9eef88] v4l2 access debug: input set to 0
+[0x9eef88] v4l2 access debug: device supports chroma RV24 [RGB3, RGB3]
+[0x9eef88] v4l2 access debug: device supports chroma RV24 [BGR3, BGR3]
+[0x9eef88] v4l2 access debug: device supports chroma I420 [YU12, YU12]
+[0x9eef88] v4l2 access debug: device supports chroma YV12 [YV12, YV12]
+[0x9eef88] v4l2 access debug: control class User Controls:
+[0x9eef88] v4l2 access debug:  integer  Brightness (00980900)
+[0x9eef88] v4l2 access debug:   current: 128, default: 128
+[0x9eef88] v4l2 access debug:  integer  Contrast (00980901)
+[0x9eef88] v4l2 access debug:   current: 128, default: 128
+[0x9eef88] v4l2 access debug:  boolean  Whitebalance (software) (0098090C)
+[0x9eef88] v4l2 access debug:   current: false, default: false
+[0x9eef88] v4l2 access debug:  integer  Gamma (00980910)
+[0x9eef88] v4l2 access debug:   current:   4, default:   4
+[0x9eef88] v4l2 access debug:  boolean  Gain, Automatic (00980912)
+[0x9eef88] v4l2 access debug:   current:  true, default:  true
+[0x9eef88] v4l2 access debug:  boolean  Horizontal flip (sw) (00980914)
+[0x9eef88] v4l2 access debug:   current: false, default: false
+[0x9eef88] v4l2 access debug:  boolean  Vertical flip (sw) (00980915)
+[0x9eef88] v4l2 access debug:   current: false, default: false
+[0x9eef88] v4l2 access debug:  menu     Power Line Frequency (00980918)
+[0x9eef88] v4l2 access debug:   current: 0, default: 0
+[0x9eef88] v4l2 access debug:   choice 0) Disabled
+[0x9eef88] v4l2 access debug:   choice 1) 50 Hz
+[0x9eef88] v4l2 access debug:   choice 2) 60 Hz
+[0x9eef88] v4l2 access debug:  integer  Sharpness (0098091B)
+[0x9eef88] v4l2 access debug:   current:   2, default:   2
+[0x9eef88] v4l2 access debug: control class JPEG Compression Controls:
+[0x9eef88] v4l2 access debug:  integer  Compression Quality (009D0903)
+[0x9eef88] v4l2 access debug:   current:  75, default:  75
+[0x9eef88] v4l2 access debug: found default width and height of 176x144
+[0x9eef88] v4l2 access debug: will try to find optimal width and height
+[0x9eef88] v4l2 access debug: Driver requires at most 38016 bytes to store a complete image
+[0x9eef88] v4l2 access debug: Interlacing setting: progressive
+[0x9eef88] v4l2 access error: device does not support mmap I/O
+[0x9eef88] v4l2 access debug: trying library V4L2
+[0x9eef88] v4l2 access debug: device SPC315NC        using driver gspca_zc3xx (version 3.12.22) on usb-bcm2708_usb-1.3
+[0x9eef88] v4l2 access debug: the device has the capabilities: 0x85000001
+[0x9eef88] v4l2 access debug:  (X) Video Capture, ( ) Audio, ( ) Tuner, ( ) Radio
+[0x9eef88] v4l2 access debug:  (X) Read/Write, (X) Streaming, ( ) Asynchronous
+[0x9eef88] v4l2 access debug: video input 0 (gspca_zc3xx) has type: External analog input *
+[0x9eef88] v4l2 access debug: input set to 0
+[0x9eef88] v4l2 access debug: device supports chroma RV24 [RGB3, RGB3]
+[0x9eef88] v4l2 access debug: device supports chroma RV24 [BGR3, BGR3]
+[0x9eef88] v4l2 access debug: device supports chroma I420 [YU12, YU12]
+[0x9eef88] v4l2 access debug: device supports chroma YV12 [YV12, YV12]
+[0x9eef88] v4l2 access debug: control class User Controls:
+[0x9eef88] v4l2 access debug:  integer  Brightness (00980900)
+[0x9eef88] v4l2 access debug:   current: 128, default: 128
+[0x9eef88] v4l2 access debug:  integer  Contrast (00980901)
+[0x9eef88] v4l2 access debug:   current: 128, default: 128
+[0x9eef88] v4l2 access debug:  boolean  Whitebalance (software) (0098090C)
+[0x9eef88] v4l2 access debug:   current: false, default: false
+[0x9eef88] v4l2 access debug:  integer  Gamma (00980910)
+[0x9eef88] v4l2 access debug:   current:   4, default:   4
+[0x9eef88] v4l2 access debug:  boolean  Gain, Automatic (00980912)
+[0x9eef88] v4l2 access debug:   current:  true, default:  true
+[0x9eef88] v4l2 access debug:  boolean  Horizontal flip (sw) (00980914)
+[0x9eef88] v4l2 access debug:   current: false, default: false
+[0x9eef88] v4l2 access debug:  boolean  Vertical flip (sw) (00980915)
+[0x9eef88] v4l2 access debug:   current: false, default: false
+[0x9eef88] v4l2 access debug:  menu     Power Line Frequency (00980918)
+[0x9eef88] v4l2 access debug:   current: 0, default: 0
+[0x9eef88] v4l2 access debug:   choice 0) Disabled
+[0x9eef88] v4l2 access debug:   choice 1) 50 Hz
+[0x9eef88] v4l2 access debug:   choice 2) 60 Hz
+[0x9eef88] v4l2 access debug:  integer  Sharpness (0098091B)
+[0x9eef88] v4l2 access debug:   current:   2, default:   2
+[0x9eef88] v4l2 access debug: control class JPEG Compression Controls:
+[0x9eef88] v4l2 access debug:  integer  Compression Quality (009D0903)
+[0x9eef88] v4l2 access debug:   current:  75, default:  75
+[0x9eef88] v4l2 access debug: found default width and height of 176x144
+[0x9eef88] v4l2 access debug: will try to find optimal width and height
+[0x9eef88] v4l2 access debug: Driver requires at most 38016 bytes to store a complete image
+[0x9eef88] v4l2 access debug: Interlacing setting: progressive
+[0x9eef88] v4l2 access error: device does not support mmap I/O
+[0x9eef88] main access debug: no access module matching "v4l2" could be loaded
+[0x9eef88] main access debug: TIMER module_need() : 47.361 ms - Total 47.361 ms / 1 intvls (Avg 47.361 ms)
+[0x9ddda8] main input error: open of `v4l2:///dev/video0' failed
+[0x9ddda8] main input error: Your input can't be opened
+[0x9ddda8] main input error: VLC is unable to open the MRL 'v4l2:///dev/video0'. Check the log for details.
+[0xb2cd38] main playlist debug: finished input
+[0xb2cd38] main playlist debug: dead input
+[0x9e1a50] main stream output debug: destroying useless sout
+[0x9e1cd0] main stream out debug: destroying chain... (name=rtp)
+[0x9e1cd0] main stream out debug: removing module "stream_out_rtp"
+[0x9e6f38] main http host debug: waitpipe: object killed
+[0x9e6f38] main http host debug: HTTP host removed
+[0x9e1cd0] main stream out debug: destroying chain done
+[0x9ddda8] main input debug: TIMER input launching for 'v4l2:///dev/video0' : 147.537 ms - Total 147.537 ms / 1 intvls (Avg 147.537 ms)
+[0xb2cd38] main playlist debug: changing item without a request (current 0/1)
+[0xb2cd38] main playlist debug: nothing to play
+[0x9d6428] [cli] lua interface: Requested shutdown.
+[0x9b58f0] main libvlc debug: exiting
+[0x9b58f0] main libvlc debug: deactivating the playlist
+[0xb2cd38] main playlist debug: deactivating the playlist
+[0x9eaf60] main playlist export debug: saving Media Library to file /home/pi/.local/share/vlc/ml.xspf
+[0x9eaf60] main playlist export debug: looking for playlist export module: 1 candidate
+[0x9eaf60] main playlist export debug: using playlist export module "export"
+[0x9eaf60] main playlist export debug: TIMER module_need() : 3.254 ms - Total 3.254 ms / 1 intvls (Avg 3.254 ms)
+[0x9eaf60] main playlist export debug: removing module "export"
+[0xb2cd38] main playlist debug: playlist correctly deactivated
+[0x9b58f0] main libvlc debug: removing all services discovery tasks
+[0x9b58f0] main libvlc debug: removing all interfaces
+[0x9d6428] [cli] main interface debug: removing module "lua"
+[0x9c6e48] main interface debug: removing module "hotkeys"
+[0xb2cd38] main playlist debug: destroying
+[0x9b58f0] main libvlc debug: TIMER ML Load : Total 104.560 ms / 1 intvls (Avg 104.560 ms)
+[0x9b58f0] main libvlc debug: TIMER Items array build : Total 1.224 ms / 1 intvls (Avg 1.224 ms)
+[0x9b58f0] main libvlc debug: TIMER ML Dump : Total 11.094 ms / 1 intvls (Avg 11.094 ms)
+[0x9b58f0] main libvlc debug: removing stats
+[0x9b58f0] main libvlc debug: removing module "memcpy"
