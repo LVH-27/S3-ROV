@@ -2,6 +2,9 @@ import serial
 import numpy as np
 import struct
 import time
+import glob
+import sys
+
 STOP_BYTE = np.uint8(0b01001100)
 
 # example: #############################
@@ -19,6 +22,55 @@ STOP_BYTE = np.uint8(0b01001100)
 #                     np.uint16(101112)
 
 ########################################
+
+def serial_ports():
+    """ Lists serial port names
+        :raises EnvironmentError:
+            On unsupported or unknown platforms
+        :returns:
+            A list of the serial ports available on the system
+    """
+    if sys.platform.startswith('win'):
+        ports = ['COM%s' % (i + 1) for i in range(256)]
+    elif sys.platform.startswith('linux') or sys.platform.startswith('cygwin'):
+        # this excludes your current terminal "/dev/tty"
+        ports = glob.glob('/dev/tty[A-Za-z]*')
+    elif sys.platform.startswith('darwin'):
+        ports = glob.glob('/dev/tty.*')
+    else:
+        raise EnvironmentError('Unsupported platform')
+
+    result = []
+    for port in ports:
+        try:
+            s = serial.Serial(port)
+            s.close()
+            result.append(port)
+        except (OSError, serial.SerialException):
+            pass
+
+    if len(result) == 0:
+        print("No serial connection available!")
+        quit(-1)
+    elif len(result) > 1:
+        while True:
+            print("Several serial connections available!\nChoose one by writing the list index:")
+            try:
+                for i in range(len(result)):
+                    print(i, result[i])
+                port_index = int(input())
+                COMM_PORT = result[port_index]
+                break
+            except IndexError as ie:
+                print("Index out of range!\n")
+            except ValueError as ve:
+                print("Invalid input value!\n")
+
+    else:
+        COMM_PORT = result[0]
+    return COMM_PORT
+
+
 
 
 def send_rov_message(arduino: serial.Serial, motor1: np.int16,

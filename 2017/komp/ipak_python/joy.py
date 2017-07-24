@@ -1,13 +1,14 @@
-import pygame, struct, serial, time, sys, os
+import pygame, struct, serial, time, sys, os, glob
 from pygame.locals import *
 import numpy as np, math
 
-from ROVserial import send_rov_message
+from ROVserial import *
+
 
 MOTOR_MAP_CONST = 2**15-1
 WAIT_TIME = 0.01 # wait period before sending each package (in seconds)
 
-COMM_PORT = str(input()) # "/dev/ttyUSB1"
+COMM_PORT = serial_ports()
 SER_SPEED = 115200
 STOP_BYTE = np.uint8(0b01001100)
 SER_PARITY = serial.PARITY_NONE
