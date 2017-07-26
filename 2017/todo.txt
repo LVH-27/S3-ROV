@@ -44,4 +44,7 @@ By loki:
     - dodat mogucnost komunikacije preko software seriala
     - promijenit da se struktura poruke moze ez mijenjati, i sukladno tome racunati checksuma
     - potrebo provjeriti funkcionira li to govno kak spada u nekim ne-idealnim uvijetima
-    
+    - obaviti sinkronizaciju slanja / primanja poruka, da se nebi opet desio buffer overflow (razlog zasto smo imali toliko gresaka)
+    - funkciju za oporavak od pogreske napisati efikasije (da ne dropa bezveze ako su dobri podaci)
+    - u funkciji za oporavak od pogreske, flushat cijeli buffer (jer se isti napuni zacas)
+    - dodat nekakav lijepi odabir moda (sinkrono/asinkrono)    
