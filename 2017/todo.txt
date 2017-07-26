@@ -46,10 +46,10 @@ By loki:
     - potrebo provjeriti funkcionira li to govno kak spada u nekim ne-idealnim uvijetima [update: funkcionira preko 20m razjebanog kabla skup s pasivnim ethernet hubom]
     - obaviti sinkronizaciju slanja / primanja poruka, da se nebi opet desio buffer overflow (razlog zasto smo imali toliko gresaka)
     - funkciju za oporavak od pogreske napisati efikasije (da ne dropa bezveze ako su dobri podaci)
-    - u funkciji za oporavak od pogreske, flushat cijeli buffer (jer se isti napuni zacas)
+    - u funkciji za oporavak od pogreske, flushat cijeli buffer (jer se isti napuni zacas) [BITNO: kao zadnju naredbu]
     - dodat nekakav lijepi odabir moda (sinkrono/asinkrono)    
     - malo zakomentirat funkcije i dodat ih u vise biblioteka (po funkciji), cisto da se vidi sto se radi
     - pri paljenju programa, motore ostavit u NEUTRAL-u oko 2 sekunde (dakle ne slusat naredbe), nakon tog ispraznit 
             buffer (Serial.flush ja mislim) i onda krenut slusat, mozda upalit LED 13 dok je u tom stanj
-    - palit/gasit LED13 pri primanju poruka, cisto da se vidi fizicki da radi ?
-    - dodat kakav emergency flag koji sve gasi ?     
+    [?] palit/gasit LED13 pri primanju poruka, cisto da se vidi fizicki da radi ?
+    [?] dodat kakav emergency flag koji sve gasi [?]
