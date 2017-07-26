@@ -23,7 +23,7 @@ Senzorski Arduino:
 
 ####################################################
 
-##probat Serial na 115200 - lol jebeš ovo, na 9600 se grči - lol ipak ne, 9600 je bilo presporo pa je odlazilo u vrit
+##probat Serial na 115200 - lol jebeš ovo, na 9600 se grči - lol ipak ne, 9600 je bilo presporo pa je odlazilo u vrit, [loki] 115200 je way to go, arduino je presporo praznio buffer 
 	vjerojatno je na kompu prepunio serijski buffer
 	pražnjenje buffera s podacima je presporo jer je red-dva veličine sporije od obrade podataka, a python samo puni
 	>>>> jel greška u tom slučaju lančana?
@@ -42,9 +42,14 @@ By loki:
     - ovaj arduino library napisat objektno (dakle struktura + metode)
     - error handling napravit ljepse (dinamicki polim., ne preko serije)
     - dodat mogucnost komunikacije preko software seriala
-    - promijenit da se struktura poruke moze ez mijenjati, i sukladno tome racunati checksuma
-    - potrebo provjeriti funkcionira li to govno kak spada u nekim ne-idealnim uvijetima
+    - promijenit da se struktura poruke moze ezz mijenjati, i sukladno tome racunati checksuma
+    - potrebo provjeriti funkcionira li to govno kak spada u nekim ne-idealnim uvijetima [update: funkcionira preko 20m razjebanog kabla skup s pasivnim ethernet hubom]
     - obaviti sinkronizaciju slanja / primanja poruka, da se nebi opet desio buffer overflow (razlog zasto smo imali toliko gresaka)
     - funkciju za oporavak od pogreske napisati efikasije (da ne dropa bezveze ako su dobri podaci)
     - u funkciji za oporavak od pogreske, flushat cijeli buffer (jer se isti napuni zacas)
     - dodat nekakav lijepi odabir moda (sinkrono/asinkrono)    
+    - malo zakomentirat funkcije i dodat ih u vise biblioteka (po funkciji), cisto da se vidi sto se radi
+    - pri paljenju programa, motore ostavit u NEUTRAL-u oko 2 sekunde (dakle ne slusat naredbe), nakon tog ispraznit 
+            buffer (Serial.flush ja mislim) i onda krenut slusat, mozda upalit LED 13 dok je u tom stanj
+    - palit/gasit LED13 pri primanju poruka, cisto da se vidi fizicki da radi ?
+    - dodat kakav emergency flag koji sve gasi ?     
