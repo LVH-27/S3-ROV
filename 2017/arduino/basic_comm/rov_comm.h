@@ -14,7 +14,7 @@ typedef struct
 msg;
 
 
-uint8_t calcSum(char* raw_msg);                // calculate checksum. to fill with raw data. takes only first 8 messages
+uint8_t calcSum(char* raw_msg);                // calculate checksum. to fill with raw data. takes only first 8 bytes
 int fillMsg(char* raw_msg, msg &message);      // fill structure message with data, received into buffer "raw_msg", of length MSGLEN
 int sumOk(uint8_t recvSum, uint8_t calcSum);   // return -1 if sums don't match
 int stopOk(uint8_t recvStop, uint8_t trueStop/* = STOP_BYTE*/);
